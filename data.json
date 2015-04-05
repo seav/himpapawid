@@ -1,0 +1,359 @@
+{
+  "airports" : {
+    "MNL": {
+      "lat"  :  14.5086,
+      "lon"  : 121.0194,
+      "name" : "Ninoy Aquino International Airport",
+      "city" : "Manila"
+    },
+    "HKG": {
+      "lat"  :  22.3089,
+      "lon"  : 113.9144,
+      "name" : "Hong Kong International Airport",
+      "city" : "Hong Kong"
+    },
+    "YVR": {
+      "lat"  :  49.1947,
+      "lon"  : 236.8161,
+      "name" : "Vancouver International Airport",
+      "city" : "Vancouver"
+    },
+    "NRT": {
+      "lat"  :  35.7653,
+      "lon"  : 140.3856,
+      "name" : "Narita International Airport",
+      "city" : "Tokyo"
+    },
+    "MPH": {
+      "lat"  :  11.9247,
+      "lon"  : 121.9550,
+      "name" : "Godofredo P. Ramos Airport",
+      "city" : "Boracay"
+    },
+    "BKK": {
+      "lat"  :  13.6925,
+      "lon"  : 100.7500,
+      "name" : "Suvarnabhumi Airport",
+      "city" : "Bangkok"
+    },
+    "TLV": {
+      "lat"  :  32.0094,
+      "lon"  :  34.8828,
+      "name" : "Ben Gurion Airport",
+      "city" : "Tel Aviv"
+    },
+    "TPE": {
+      "lat"  :  25.0784,
+      "lon"  : 121.2325,
+      "name" : "Taiwan Taoyuan International Airport",
+      "city" : "Taipei"
+    },
+    "AMS": {
+      "lat"  : 52.3081,
+      "lon"  :  4.7642,
+      "name" : "Amsterdam Airport Schiphol",
+      "city" : "Amsterdam"
+    },
+    "TXL": {
+      "lat"  : 52.5597,
+      "lon"  : 13.2878,
+      "name" : "Berlin Tegel Airport",
+      "city" : "Berlin"
+    },
+    "DXB": {
+      "lat"  : 25.2522,
+      "lon"  : 55.3706,
+      "name" : "Dubai International Airport",
+      "city" : "Dubai"
+    },
+    "LHR": {
+      "lat"  : 51.4709,
+      "lon"  : -0.4531,
+      "name" : "Heathrow Airport",
+      "city" : "London"
+    },
+    "CEB": {
+      "lat"  :  10.3132,
+      "lon"  : 123.9789,
+      "name" : "Mactan-Cebu International Airport",
+      "city" : "Cebu"
+    },
+    "HND": {
+      "lat"  :  35.5523,
+      "lon"  : 139.7797,
+      "name" : "Haneda Airport",
+      "city" : "Tokyo"
+    }
+  },
+  "trips": [
+    {
+      "title": "Vancouver Family Vacation",
+      "legs": [
+        {
+          "flightNum" : "CX???",
+          "airline"   : "Cathay Pacific",
+          "departure" : { "airport": "MNL", "time": "2009"},
+          "stops"     : [ "HKG" ],
+          "arrival"   : { "airport": "YVR", "time": "2009"}
+        },
+        {
+          "flightNum" : "CX???",
+          "airline"   : "Cathay Pacific",
+          "departure" : { "airport": "YVR", "time": "2009"},
+          "stops"     : [ "HKG" ],
+          "arrival"   : { "airport": "MNL", "time": "2009"}
+        }
+      ]
+    },
+    {
+      "title": "Japan Business Trip 1",
+      "legs": [
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "MNL", "time": "2006-04-04"},
+          "arrival"   : { "airport": "NRT", "time": "2006-04-04"}
+        },
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "NRT", "time": "2006-04-28"},
+          "arrival"   : { "airport": "MNL", "time": "2006-04-28"}
+        }
+      ]
+    },
+    {
+      "title": "Japan Business Trip 2",
+      "legs": [
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "MNL", "time": "2006-11-20"},
+          "arrival"   : { "airport": "NRT", "time": "2006-11-20"}
+        },
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "NRT", "time": "2006-12-15"},
+          "arrival"   : { "airport": "MNL", "time": "2006-12-15"}
+        }
+      ]
+    },
+    {
+      "title": "Boracay Bloggers Trip",
+      "legs": [
+        {
+          "flightNum" : "Z2???",
+          "airline"   : "Zest Air",
+          "departure" : { "airport": "MNL", "time": "2008"},
+          "arrival"   : { "airport": "MPH", "time": "2008"}
+        },
+        {
+          "flightNum" : "Z2???",
+          "airline"   : "Zest Air",
+          "departure" : { "airport": "MPH", "time": "2008"},
+          "arrival"   : { "airport": "MNL", "time": "2008"}
+        }
+      ]
+    },
+    {
+      "title": "Hong Kong Family Vacation",
+      "legs": [
+        {
+          "flightNum" : "5J???",
+          "airline"   : "Cebu Pacific",
+          "departure" : { "airport": "MNL", "time": "2011-03-03"},
+          "arrival"   : { "airport": "HKG", "time": "2011-03-03"}
+        },
+        {
+          "flightNum" : "5J???",
+          "airline"   : "Cebu Pacific",
+          "departure" : { "airport": "HKG", "time": "2011-03-06"},
+          "arrival"   : { "airport": "MNL", "time": "2011-03-06"}
+        }
+      ]
+    },
+    {
+      "title": "Wikimania 2011: Haifa, Israel",
+      "legs": [
+        {
+          "flightNum" : "PR732",
+          "airline"   : "Philippine Airlines",
+          "departure" : { "airport": "MNL", "time": "2011-08-02T19:30+08"},
+          "arrival"   : { "airport": "BKK", "time": "2011-08-02T21:50+07"}
+        },
+        {
+          "flightNum" : "LY82",
+          "airline"   : "El Al",
+          "departure" : { "airport": "BKK", "time": "2011-08-03T00:10+07"},
+          "arrival"   : { "airport": "TLV", "time": "2011-08-03T07:00+03"}
+        },
+        {
+          "flightNum" : "LY75",
+          "airline"   : "El Al",
+          "departure" : { "airport": "TLV", "time": "2011-08-08T22:00+03"},
+          "arrival"   : { "airport": "HKG", "time": "2011-08-09T13:50+08"}
+        },
+        {
+          "flightNum" : "CX903",
+          "airline"   : "Cathay Pacific",
+          "departure" : { "airport": "HKG", "time": "2011-08-09T16:35+08"},
+          "arrival"   : { "airport": "MNL", "time": "2011-08-09T18:40+08"}
+        }
+      ]
+    },
+    {
+      "title": "Wikimedia Chapters Conference 2012",
+      "legs": [
+        {
+          "flightNum" : "KL808",
+          "airline"   : "KLM Royal Dutch Airlines",
+          "departure" : { "airport": "MNL", "time": "2012-03-28T19:40+08"},
+          "stops"     : [ "TPE" ],
+          "arrival"   : { "airport": "AMS", "time": "2013-03-29T06:10+02"}
+        },
+        {
+          "flightNum" : "KL18??",
+          "airline"   : "KLM Royal Dutch Airlines",
+          "departure" : { "airport": "AMS", "time": "2012-03-29"},
+          "arrival"   : { "airport": "TXL", "time": "2012-03-29"}
+        },
+        {
+          "flightNum" : "KL1830",
+          "airline"   : "KLM Royal Dutch Airlines",
+          "departure" : { "airport": "TXL", "time": "2012-04-02T17:25+02"},
+          "arrival"   : { "airport": "AMS", "time": "2012-04-02T18:45+02"}
+        },
+        {
+          "flightNum" : "KL807",
+          "airline"   : "KLM Royal Dutch Airlines",
+          "departure" : { "airport": "AMS", "time": "2012-04-02T20:40+02"},
+          "stops"     : [ "TPE" ],
+          "arrival"   : { "airport": "MNL", "time": "2013-04-03T18:15+08"}
+        }
+      ]
+    },
+    {
+      "title": "Japan Business Trip 3",
+      "legs": [
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "MNL", "time": "2012-06-11"},
+          "arrival"   : { "airport": "NRT", "time": "2012-06-11"}
+        },
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "NRT", "time": "2012-06-29"},
+          "arrival"   : { "airport": "MNL", "time": "2012-06-29"}
+        }
+      ]
+    },
+    {
+      "title": "Japan Business Trip 4",
+      "legs": [
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "MNL", "time": "2012-12-03"},
+          "arrival"   : { "airport": "NRT", "time": "2012-12-03"}
+        },
+        {
+          "flightNum" : "JL???",
+          "airline"   : "Japan Airlines",
+          "departure" : { "airport": "NRT", "time": "2012-12-14"},
+          "arrival"   : { "airport": "MNL", "time": "2012-12-14"}
+        }
+      ]
+    },
+    {
+      "title": "Wikimania 2013: Hong Kong",
+      "legs": [
+        {
+          "flightNum" : "5J118",
+          "airline"   : "Cebu Pacific",
+          "departure" : { "airport": "MNL", "time": "2013-08-06T16:40+08"},
+          "arrival"   : { "airport": "HKG", "time": "2013-08-06T18:40+08"}
+        },
+        {
+          "flightNum" : "5J119",
+          "airline"   : "Cebu Pacific",
+          "departure" : { "airport": "HKG", "time": "2013-08-12T19:30+08"},
+          "arrival"   : { "airport": "MNL", "time": "2013-08-12T21:30+08"}
+        }
+      ]
+    },
+    {
+      "title": "Wikimania 2014: London, United Kingdom",
+      "legs": [
+        {
+          "flightNum" : "EK337",
+          "airline"   : "Emirates",
+          "aircraft"  : "Boeing 777-300",
+          "departure" : { "airport": "MNL", "time": "2014-08-05T08:55+08"},
+          "arrival"   : { "airport": "DXB", "time": "2014-08-05T13:20+04"}
+        },
+        {
+          "flightNum" : "EK5",
+          "airline"   : "Emirates",
+          "aircraft"  : "Airbus A380-800",
+          "departure" : { "airport": "DXB", "time": "2014-08-05T15:45+04"},
+          "arrival"   : { "airport": "LHR", "time": "2014-08-05T20:15+01"}
+        },
+        {
+          "flightNum" : "EK4",
+          "airline"   : "Emirates",
+          "aircraft"  : "Airbus A380-800",
+          "departure" : { "airport": "LHR", "time": "2014-08-14T20:40+01"},
+          "arrival"   : { "airport": "DXB", "time": "2014-08-15T06:30+04"}
+        },
+        {
+          "flightNum" : "EK334",
+          "airline"   : "Emirates",
+          "aircraft"  : "Boeing 777-300",
+          "departure" : { "airport": "DXB", "time": "2014-08-15T09:20+04"},
+          "arrival"   : { "airport": "MNL", "time": "2014-08-15T22:10+08"}
+        }
+      ]
+    },
+    {
+      "title": "Global Voices Summit 2015: Cebu, Philippines",
+      "legs": [
+        {
+          "flightNum" : "PR1853",
+          "airline"   : "Philippine Airlines",
+          "aircraft"  : "Airbus A320-200",
+          "departure" : { "airport": "MNL", "time": "2015-01-24T11:00+08"},
+          "arrival"   : { "airport": "CEB", "time": "2015-01-24T12:15+08"}
+        },
+        {
+          "flightNum" : "PR1868",
+          "airline"   : "Philippine Airlines",
+          "aircraft"  : "Airbus A320-200",
+          "departure" : { "airport": "CEB", "time": "2015-01-26T22:00+08"},
+          "arrival"   : { "airport": "MNL", "time": "2015-01-26T23:15+08"}
+        }
+      ]
+    },
+    {
+      "title": "IPA Japan Top Gun Program",
+      "legs": [
+        {
+          "flightNum" : "PR422",
+          "airline"   : "Philippine Airlines",
+          "aircraft"  : "Airbus A321",
+          "departure" : { "airport": "MNL", "time": "2015-02-22T08:50+08"},
+          "arrival"   : { "airport": "HND", "time": "2015-02-22T14:00+09"}
+        },
+        {
+          "flightNum" : "PR427",
+          "airline"   : "Philippine Airlines",
+          "aircraft"  : "Airbus A321",
+          "departure" : { "airport": "NRT", "time": "2015-02-28T13:10+09"},
+          "arrival"   : { "airport": "MNL", "time": "2015-02-28T17:10+08"}
+        }
+      ]
+    }
+  ]
+}
