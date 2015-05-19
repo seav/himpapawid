@@ -83,6 +83,12 @@
       "lon"  : 139.7797,
       "name" : "Haneda Airport",
       "city" : "Tokyo"
+    },
+    "IST": {
+      "lat"  :  40.9761,
+      "lon"  :  28.8142 ,
+      "name" : "Istanbul Ataturk Airport",
+      "city" : "istanbul"
     }
   },
   "trips": [
@@ -352,6 +358,46 @@
           "aircraft"  : "Airbus A321",
           "departure" : { "airport": "NRT", "time": "2015-02-28T13:10+09"},
           "arrival"   : { "airport": "MNL", "time": "2015-02-28T17:10+08"}
+        }
+      ]
+    },
+    {
+      "title": "Wikimedia Conference 2015",
+      "legs": [
+        {
+          "flightNum" : "TK85",
+          "airline"   : "Turkish Airlines",
+          "aircraft"  : "Airbus A340",
+          "departure" : { "airport": "MNL", "time": "2015-05-13T20:50+08"},
+          "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+02"}
+        },
+        {
+          "flightNum" : "TK1721",
+          "airline"   : "Turkish Airlines",
+          "aircraft"  : "Airbus A321-200",
+          "departure" : { "airport": "IST", "time": "2015-05-14T08:25+02"},
+          "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+01"}
+        },
+        {
+          "flightNum" : "TK1724",
+          "airline"   : "Turkish Airlines",
+          "aircraft"  : "Airbus A321-200",
+          "departure" : { "airport": "TXL", "time": "2015-05-18T19:00+01"},
+          "arrival"   : { "airport": "IST", "time": "2015-05-18T22:50+02"}
+        },
+        {
+          "flightNum" : "TK70",
+          "airline"   : "Turkish Airlines",
+          "aircraft"  : "Boeing 777-300",
+          "departure" : { "airport": "IST", "time": "2015-05-19T01:15+02"},
+          "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08"}
+        },
+        {
+          "flightNum" : "CX913",
+          "airline"   : "Cathay Pacific",
+          "aircraft"  : "Boeing 777-300",
+          "departure" : { "airport": "HKG", "time": "2015-05-19T20:25+08"},
+          "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08"}
         }
       ]
     }
