@@ -1,53 +1,17 @@
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>In-Flight</title>
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
-<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+<title>Flight Record</title>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet/v1.0.0-beta.2/leaflet.js"></script>
 <script src="arc.js"></script>
 <style type="text/css">
 
 html, body {
  margin: 0;
  padding: 0;
-}
-
-#infopane {
- display: none;
- float: left;
- width: 200px;
  height: 100%;
- overflow: auto;
- background: #ccc;
- font-size: 11px;
- color: #444;
-}
-
-h1 {
- margin: 0;
- padding: 10px;
- font-size: 14px;
- background: #888;
- color: white;
-}
-
-p {
- margin: 10px;
-}
-
-a {
- color: #48F;
-}
-
-#credits {
- border-top: 1px solid #AAA;
- padding-top: 5px;
- font-size: 9px;
- color: #888;
-}
-
-#credits a {
- color: #8AF;
 }
 
 #map {
@@ -55,7 +19,7 @@ a {
  background: #333 !important;
 }
 
-#map .leaflet-tile-pane img {
+#map .leaflet-tile-container {
  opacity: 0.2;
 }
 
@@ -88,89 +52,48 @@ a {
  z-index: 120 !important;
 }
 
-#map .endpoint-label, #map .midpoint-label {
- font-family: Verdana, sans-serif;
- opacity: 0.8;
- font-size: 12px;
- font-weight: bold;
- line-height: 20px;
-}
-
-#map .endpoint-label {
- margin-top: -20px !important;
- margin-left: 10px !important;
- width: 50px !important;
- height: 20px !important;
- color: #FF8;
- z-index: 115 !important;
-}
-
-#map .midpoint-label {
- margin-top: -20px !important;
- margin-left: 10px !important;
- width: 50px !important;
- height: 20px !important;
- color: #FC8;
- z-index: 110 !important;
-}
-
-.iata {
- display: block;
- font-size: 20px;
-}
-
-.airport_name {
- font-size: 10px;
-}
-
 </style>
 </head>
 <body>
-<div id="infopane">
-<h1>Flights</h1>
-</div>
 <div id="map"></div>
-</body>
-<script type="text/javascript">
+<script>
 
-var LONG_LIMIT = -120;
-
-var XhrObject = new XMLHttpRequest();
+// App parameters
+var LONG_LIMIT             = -120;
+var INIT_LAT               = 14.5;
+var INIT_LON               = 121;
+var INIT_ZOOM              = 4;
+var TILE_LAYER_URL         = 'http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.png';
+var TILE_LAYER_ATTRIBUTION = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
+                             'under <a href="http://creativecommons.org/licenses/by/3.0">CC-BY 3.0</a>. ' +
+                             'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
+                             'under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.';
+var TILE_LAYER_MAX_ZOOM    = 5;
+var DATA_URL               = 'data.json';
 
 var Map;
 
 function init() {
 
-   // Specify default map location
-   var initLat  = 14.5;
-   var initLng  = 121;
-   var initZoom = 4;
+  var xhrObject = new XMLHttpRequest();
 
-   // Initialize the map and permalink
-   Map = new L.Map('map', {
-      center : new L.LatLng(initLat, initLng),
-      zoom   : initZoom
-   });
+  // Initialize the map and add the tile layer
+  Map = new L.Map('map', {
+    center : new L.LatLng(INIT_LAT, INIT_LON),
+    zoom   : INIT_ZOOM
+  });
+  new L.tileLayer(TILE_LAYER_URL, {
+    attribution: TILE_LAYER_ATTRIBUTION,
+    maxZoom: TILE_LAYER_MAX_ZOOM,
+  }).addTo(Map);
 
-   // Declare tile layer control data object
-   var tilesLayers = new Object;
-
-   // Create the Stamen Toner tile layer
-   var stamenTonerURL = 'http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.png';
-   var stamenTonerLayer = new L.TileLayer(stamenTonerURL, {
-      maxZoom: 5,
-      attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.',
-   });
-
-   // Add the MapQuest tile layer to the map (default)
-   Map.addLayer(stamenTonerLayer);
-
-   // Load the overlay data
-   XhrObject.onreadystatechange = processData;
-   XhrObject.open('GET', 'data.json', true);
-   XhrObject.overrideMimeType('text/plain');
-   XhrObject.send(null);
+  // Load the overlay data
+  xhrObject.onreadystatechange = processData;
+  xhrObject.open('GET', DATA_URL, true);
+  xhrObject.overrideMimeType('text/plain');
+  xhrObject.send(null);
 }
+window.addEventListener('load', init);
 
 function processData() {
 
@@ -181,125 +104,112 @@ function processData() {
    var startCode, endCode, startEndCode;
    var startCoord, endCoord;
 
-   if (XhrObject.readyState != 4) return;
+  if (this.readyState != this.DONE || this.status != 200) return;
 
-   data = JSON.parse(XhrObject.responseText);
+  data = JSON.parse(this.responseText);
 
-   // Process the data
-   for (tripIdx = 0; tripIdx < data.trips.length; tripIdx++) {
-      journeys = data.trips[tripIdx].journeys;
-      for (journeyIdx = 0; journeyIdx < journeys.length; journeyIdx++) {
-         flights = journeys[journeyIdx].flights;
-         for (flightIdx = 0; flightIdx < flights.length; flightIdx++) {
+  // Process the data
+  for (tripIdx = 0; tripIdx < data.trips.length; tripIdx++) {
+    journeys = data.trips[tripIdx].journeys;
+    for (journeyIdx = 0; journeyIdx < journeys.length; journeyIdx++) {
+      flights = journeys[journeyIdx].flights;
+      for (flightIdx = 0; flightIdx < flights.length; flightIdx++) {
 
-            flight = flights[flightIdx];
+        flight = flights[flightIdx];
 
-            nodes = [flight.departure.airport];
-            if (flight.stops) nodes.push(flight.stops);
-            nodes.push(flight.arrival.airport);
+        nodes = [flight.departure.airport];
+        if (flight.stops) nodes.push(flight.stops);
+        nodes.push(flight.arrival.airport);
 
-            // Add airports and mark some airports as endpoints
-            for (nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
+        // Add airports and mark some airports as endpoints
+        for (nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
 
-               isEndpoint = (
-                  (flightIdx == 0 && nodeIdx == 0) ||
-                  (flightIdx == flights.length - 1 && nodeIdx == nodes.length - 1)
-               );
+          isEndpoint = (
+            (flightIdx == 0 && nodeIdx == 0) ||
+            (flightIdx == flights.length - 1 && nodeIdx == nodes.length - 1)
+          );
 
-               if (!airportsInfo[nodes[nodeIdx]]) {
-                  airportsInfo[nodes[nodeIdx]] = {
-                     isEndpoint: isEndpoint,
-                  };
-               } else {
-                  if (isEndpoint) airportsInfo[nodes[nodeIdx]].isEndpoint = true;
-               }
+          if (!airportsInfo[nodes[nodeIdx]]) {
+            airportsInfo[nodes[nodeIdx]] = {
+              isEndpoint: isEndpoint,
+            };
+          } else {
+            if (isEndpoint) airportsInfo[nodes[nodeIdx]].isEndpoint = true;
+          }
+        }
+
+        // Generate leg arc info
+        for (nodeIdx = 0; nodeIdx < nodes.length - 1; nodeIdx++) {
+
+          if (nodes[nodeIdx] < nodes[nodeIdx + 1]) {
+            startCode = nodes[nodeIdx];
+            endCode   = nodes[nodeIdx + 1];
+          } else {
+            startCode = nodes[nodeIdx + 1];
+            endCode   = nodes[nodeIdx];
+          }
+          startEndCode = startCode + '-' + endCode;
+
+          if (!legsInfo[startEndCode]) {
+
+            startCoord = new arc.Coord(data.airports[startCode].lon, data.airports[startCode].lat);
+            endCoord   = new arc.Coord(data.airports[endCode  ].lon, data.airports[endCode  ].lat);
+            var line   = new arc.GreatCircle(startCoord, endCoord).Arc(30);
+
+            // Adjust coordinates for 180°
+            for (var l = 0; l < line.geometries.length; l++) {
+              for (var m = 0; m < line.geometries[l].coords.length; m++) {
+                if (line.geometries[l].coords[m][0] < LONG_LIMIT) {
+                  line.geometries[l].coords[m][0] += 360;
+                }
+              }
             }
 
-            // Generate leg arc info
-            for (nodeIdx = 0; nodeIdx < nodes.length - 1; nodeIdx++) {
+            legsInfo[startEndCode] = {
+              geojson: line.json(),
+              tally: 1,
+            };
 
-               if (nodes[nodeIdx] < nodes[nodeIdx + 1]) {
-                  startCode = nodes[nodeIdx];
-                  endCode   = nodes[nodeIdx + 1];
-               } else {
-                  startCode = nodes[nodeIdx + 1];
-                  endCode   = nodes[nodeIdx];
-               }
-               startEndCode = startCode + '-' + endCode;
-
-               if (!legsInfo[startEndCode]) {
-
-                  startCoord = new arc.Coord(data.airports[startCode].lon, data.airports[startCode].lat);
-                  endCoord   = new arc.Coord(data.airports[endCode  ].lon, data.airports[endCode  ].lat);
-                  var line   = new arc.GreatCircle(startCoord, endCoord).Arc(30);
-
-                  // Adjust coordinates for 180°
-                  for (var l = 0; l < line.geometries.length; l++) {
-                     for (var m = 0; m < line.geometries[l].coords.length; m++) {
-                        if (line.geometries[l].coords[m][0] < LONG_LIMIT) {
-                           line.geometries[l].coords[m][0] += 360;
-                        }
-                     }
-                  }
-
-                  legsInfo[startEndCode] = {
-                     geojson: line.json(),
-                     tally: 1,
-                  };
-
-               } else {
-                  legsInfo[startEndCode].tally++;
-               }
-            }
-         }
+          } else {
+            legsInfo[startEndCode].tally++;
+          }
+        }
       }
-   }
+    }
+  }
 
-   var legs = Object.keys(legsInfo);
-   for (i = 0; i < legs.length; i++) {
-      var strokeWidth = legsInfo[legs[i]].tally + 2;
-      var strokeOpacity = 0.6;
-      var strokeColor = 'rgb(255,160,128)';
-      var layer = L.geoJson(legsInfo[legs[i]].geojson, {
-         clickable: false,
-         style: function() {
-            return {
-               stroke  : true,
-               color   : strokeColor,
-               opacity : strokeOpacity,
-               weight  : strokeWidth,
-            }
-         }
-      });
+  var legs = Object.keys(legsInfo);
+  for (i = 0; i < legs.length; i++) {
+    var strokeWidth = legsInfo[legs[i]].tally + 2;
+    var strokeOpacity = 0.6;
+    var strokeColor = 'rgb(255,160,128)';
+    var layer = L.geoJson(legsInfo[legs[i]].geojson, {
+      clickable: false,
+      style: function() {
+        return {
+          stroke  : true,
+          color   : strokeColor,
+          opacity : strokeOpacity,
+          weight  : strokeWidth,
+        }
+      }
+    });
 
-      Map.addLayer(layer);
-   }
+    Map.addLayer(layer);
+  }
 
-   var airports = Object.keys(airportsInfo);
-   for (i = 0; i < airports.length; i++) {
-      var airportData = data.airports[airports[i]];
-      //var popupMsg = '<strong class="iata">' + airports[i] + '</strong>'
-      //   + '<span class="airport_name">' + airportData.name + '</span>';
-      var iconObj = L.divIcon({className: airportsInfo[airports[i]].isEndpoint ? 'endpoint' : 'midpoint'});
-      var marker = L.marker([airportData.lat, airportData.lon], {
-         icon: iconObj,
-         clickable: false,
-         keyboard: false,
-      }).addTo(Map);
-      //marker.bindPopup(popupMsg);
-//       var icon2Obj = L.divIcon({
-//          className: airportsInfo[airports[i]].isEndpoint ? 'endpoint-label' : 'midpoint-label',
-//          html: airports[i],
-//       });
-//       var marker2 = L.marker([airportData.lat, airportData.lon], {
-//          icon: icon2Obj,
-//          clickable: false,
-//          keyboard: false,
-//       }).addTo(Map);
-   }
+  var airports = Object.keys(airportsInfo);
+  for (i = 0; i < airports.length; i++) {
+    var airportData = data.airports[airports[i]];
+    var iconObj = L.divIcon({className: airportsInfo[airports[i]].isEndpoint ? 'endpoint' : 'midpoint'});
+    var marker = L.marker([airportData.lat, airportData.lon], {
+      icon: iconObj,
+      clickable: false,
+      keyboard: false,
+    }).addTo(Map);
+  }
 }
 
-init();
-
 </script>
+</body>
 </html>
