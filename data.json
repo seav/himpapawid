@@ -260,10 +260,11 @@
         {
           "flights": [
             {
-              "flightNum" : "JL???",
+              "flightNum" : "JL745",
               "airline"   : "Japan Airlines",
               "departure" : { "airport": "NRT", "time": "2012-12-14"},
-              "arrival"   : { "airport": "MNL", "time": "2012-12-14"}
+              "arrival"   : { "airport": "MNL", "time": "2012-12-14"},
+              "seat"      : "62E"
             }
           ]
         }
@@ -402,7 +403,8 @@
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A340",
               "departure" : { "airport": "MNL", "time": "2015-05-13T20:50+08"},
-              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+02"}
+              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+02"},
+              "seat"      : "34A"
             },
             {
               "flightNum" : "TK1721",
@@ -434,7 +436,8 @@
               "airline"   : "Cathay Pacific",
               "aircraft"  : "Boeing 777-300",
               "departure" : { "airport": "HKG", "time": "2015-05-19T20:25+08"},
-              "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08"}
+              "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08"},
+              "seat"      : "41K"
             }
           ]
         }
