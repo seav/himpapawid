@@ -19,10 +19,6 @@ html, body {
  background: #333 !important;
 }
 
-#map .leaflet-tile-container {
- opacity: 0.2;
-}
-
 #map .leaflet-control-attribution {
  background: rgba(0,0,0,0.4);
  padding: 4px 10px;
@@ -63,12 +59,12 @@ var LONG_LIMIT             = -120;
 var INIT_LAT               = 14.5;
 var INIT_LON               = 121;
 var INIT_ZOOM              = 4;
-var TILE_LAYER_URL         = 'http://{s}.tile.stamen.com/toner-background/{z}/{x}/{y}.png';
+var TILE_LAYER_URL         = 'http://fr.vaes9.com/tiles/{z}/{x}/{y}.png';
 var TILE_LAYER_ATTRIBUTION = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
                              'under <a href="http://creativecommons.org/licenses/by/3.0">CC-BY 3.0</a>. ' +
                              'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
                              'under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.';
-var TILE_LAYER_MAX_ZOOM    = 5;
+var TILE_LAYER_MAX_ZOOM    = 6;
 var DATA_URL               = 'data.json';
 
 var Map;
