@@ -190,7 +190,7 @@
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "MNL", "time": "2012-03-28T19:40+08"},
               "stops"     : [ "TPE" ],
-              "arrival"   : { "airport": "AMS", "time": "2013-03-29T06:10+02"}
+              "arrival"   : { "airport": "AMS", "time": "2012-03-29T06:10+02"}
             },
             {
               "flightNum" : "KL18??",
@@ -213,7 +213,7 @@
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "AMS", "time": "2012-04-02T20:40+02"},
               "stops"     : [ "TPE" ],
-              "arrival"   : { "airport": "MNL", "time": "2013-04-03T18:15+08"}
+              "arrival"   : { "airport": "MNL", "time": "2012-04-03T18:15+08"}
             }
           ]
         }
@@ -403,15 +403,15 @@
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A340",
               "departure" : { "airport": "MNL", "time": "2015-05-13T20:50+08"},
-              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+02"},
+              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+03"},
               "seat"      : "34A"
             },
             {
               "flightNum" : "TK1721",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A321-200",
-              "departure" : { "airport": "IST", "time": "2015-05-14T08:25+02"},
-              "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+01"}
+              "departure" : { "airport": "IST", "time": "2015-05-14T08:25+03"},
+              "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+02"}
             }
           ]
         },
@@ -421,14 +421,14 @@
               "flightNum" : "TK1724",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A321-200",
-              "departure" : { "airport": "TXL", "time": "2015-05-18T19:00+01"},
-              "arrival"   : { "airport": "IST", "time": "2015-05-18T22:50+02"}
+              "departure" : { "airport": "TXL", "time": "2015-05-18T19:00+02"},
+              "arrival"   : { "airport": "IST", "time": "2015-05-18T22:50+03"}
             },
             {
               "flightNum" : "TK70",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Boeing 777-300",
-              "departure" : { "airport": "IST", "time": "2015-05-19T01:15+02"},
+              "departure" : { "airport": "IST", "time": "2015-05-19T01:15+03"},
               "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08"}
             },
             {
@@ -437,6 +437,48 @@
               "aircraft"  : "Boeing 777-300",
               "departure" : { "airport": "HKG", "time": "2015-05-19T20:25+08"},
               "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08"},
+              "seat"      : "41K"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Cadasta Staff Retreat 2016",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "WY844",
+              "airline"   : "Oman Air",
+              "aircraft"  : "Airbus A330",
+              "departure" : { "airport": "MNL", "time": "2016-08-14T08:05+08"},
+              "arrival"   : { "airport": "MCT", "time": "2016-08-14T12:20+04"}
+            },
+            {
+              "flightNum" : "WY113",
+              "airline"   : "Oman Air",
+              "aircraft"  : "Airbus A330-200",
+              "departure" : { "airport": "MCT", "time": "2016-08-14T13:35+04"},
+              "arrival"   : { "airport": "FRA", "time": "2016-08-14T18:45+02"}
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "WY114",
+              "airline"   : "Oman Air",
+              "aircraft"  : "Airbus A330-200",
+              "departure" : { "airport": "FRA", "time": "2016-08-20T20:20+02"},
+              "arrival"   : { "airport": "MCT", "time": "2016-08-21T05:15+04"}
+            },
+            {
+              "flightNum" : "WY843",
+              "airline"   : "Oman Air",
+              "aircraft"  : "Airbus A330",
+              "departure" : { "airport": "MCT", "time": "2016-08-21T08:30+04"},
+              "arrival"   : { "airport": "MNL", "time": "2016-08-21T21:15+08"},
               "seat"      : "41K"
             }
           ]
@@ -533,7 +575,19 @@
       "lat"  :  40.9761,
       "lon"  :  28.8142 ,
       "name" : "Istanbul Ataturk Airport",
-      "city" : "istanbul"
+      "city" : "Istanbul"
+    },
+    "MCT": {
+      "lat"  :  23.5933,
+      "lon"  :  58.2844,
+      "name" : "Muscat International Airport",
+      "city" : "Muscat"
+    },
+    "FRA": {
+      "lat"  :  50.0333,
+      "lon"  :   8.5706,
+      "name" : "Frankfurt Airport",
+      "city" : "Frankfurt"
     }
   }
 }
