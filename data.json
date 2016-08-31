@@ -6,32 +6,36 @@
         {
           "flights": [
             {
-              "flightNum" : "CX???",
+              "flightNum" : "CX906",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "MNL", "time": "2009"},
-              "arrival"   : { "airport": "HKG", "time": "2009"}
+              "departure" : { "airport": "MNL", "time": "1999-05-05T10:50+08"},
+              "arrival"   : { "airport": "HKG", "time": "1999-05-05T13:15+08"},
+              "notes"     : "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data."
             },
             {
-              "flightNum" : "CX???",
+              "flightNum" : "CX838",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "HKG", "time": "2009"},
-              "arrival"   : { "airport": "YVR", "time": "2009"}
+              "departure" : { "airport": "HKG", "time": "1999-05-05T16:20+08"},
+              "arrival"   : { "airport": "YVR", "time": "1999-05-05T13:15-07"},
+              "notes"     : "Flight number, date, STD, and STA are guessed from 2016 flight data."
             }
           ]
         },
         {
           "flights": [
             {
-              "flightNum" : "CX???",
+              "flightNum" : "CX837",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "YVR", "time": "2009"},
-              "arrival"   : { "airport": "HKG", "time": "2009"}
+              "departure" : { "airport": "YVR", "time": "1999-05-27T14:45-07"},
+              "arrival"   : { "airport": "HKG", "time": "1999-05-28T19:15+08"},
+              "notes"     : "Flight number, date, STD, and STA are guessed from 2016 flight data."
             },
             {
-              "flightNum" : "CX???",
+              "flightNum" : "CX905",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "HKG", "time": "2009"},
-              "arrival"   : { "airport": "MNL", "time": "2009"}
+              "departure" : { "airport": "HKG", "time": "1999-05-28T22:05+08"},
+              "arrival"   : { "airport": "MNL", "time": "1999-05-29T00:15+08"},
+              "notes"     : "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data."
             }
           ]
         }
@@ -124,20 +128,22 @@
         {
           "flights": [
             {
-              "flightNum" : "5J???",
+              "flightNum" : "5J108",
               "airline"   : "Cebu Pacific",
-              "departure" : { "airport": "MNL", "time": "2011-03-03"},
-              "arrival"   : { "airport": "HKG", "time": "2011-03-03"}
+              "departure" : { "airport": "MNL", "time": "2011-03-03T05:40+08"},
+              "arrival"   : { "airport": "HKG", "time": "2011-03-03T07:40+08"},
+              "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
         },
         {
           "flights": [
             {
-              "flightNum" : "5J???",
+              "flightNum" : "5J111",
               "airline"   : "Cebu Pacific",
-              "departure" : { "airport": "HKG", "time": "2011-03-06"},
-              "arrival"   : { "airport": "MNL", "time": "2011-03-06"}
+              "departure" : { "airport": "HKG", "time": "2011-03-06T10:40+08"},
+              "arrival"   : { "airport": "MNL", "time": "2011-03-06T12:40+08"},
+              "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
         }
@@ -189,14 +195,22 @@
               "flightNum" : "KL808",
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "MNL", "time": "2012-03-28T19:40+08"},
-              "stops"     : [ "TPE" ],
-              "arrival"   : { "airport": "AMS", "time": "2012-03-29T06:10+02"}
+              "stops"     : [
+                {
+                  "airport"   : "TPE",
+                  "arrival"   : "2012-03-28T21:45+08",
+                  "departure" : "2012-03-28T23:10+08"
+                }
+              ],
+              "arrival"   : { "airport": "AMS", "time": "2012-03-29T06:10+02"},
+              "notes"     : "Stop STA and STD are taken from Flight Stats."
             },
             {
-              "flightNum" : "KL18??",
+              "flightNum" : "KL1823",
               "airline"   : "KLM Royal Dutch Airlines",
-              "departure" : { "airport": "AMS", "time": "2012-03-29"},
-              "arrival"   : { "airport": "TXL", "time": "2012-03-29"}
+              "departure" : { "airport": "AMS", "time": "2012-03-29T10:05+02"},
+              "arrival"   : { "airport": "TXL", "time": "2012-03-29T11:20+02"},
+              "notes"     : "Flight was rebooked from KL1821 due to the previous flight’s delay. Flight data is taken from Flight Stats."
             }
           ]
         },
@@ -212,8 +226,15 @@
               "flightNum" : "KL807",
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "AMS", "time": "2012-04-02T20:40+02"},
-              "stops"     : [ "TPE" ],
-              "arrival"   : { "airport": "MNL", "time": "2012-04-03T18:15+08"}
+              "stops"     : [
+                {
+                  "airport"   : "TPE",
+                  "arrival"   : "2012-04-03T14:45+08",
+                  "departure" : "2012-04-03T16:10+08"
+                }
+              ],
+              "arrival"   : { "airport": "MNL", "time": "2012-04-03T18:15+08"},
+              "notes"     : "Stop STA and STD are taken from Flight Stats."
             }
           ]
         }
@@ -225,20 +246,22 @@
         {
           "flights": [
             {
-              "flightNum" : "JL???",
+              "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "MNL", "time": "2012-06-11"},
-              "arrival"   : { "airport": "NRT", "time": "2012-06-11"}
+              "departure" : { "airport": "MNL", "time": "2012-06-11T09:00+08"},
+              "arrival"   : { "airport": "NRT", "time": "2012-06-11T14:30+09"},
+              "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
         },
         {
           "flights": [
             {
-              "flightNum" : "JL???",
+              "flightNum" : "JL741",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "NRT", "time": "2012-06-29"},
-              "arrival"   : { "airport": "MNL", "time": "2012-06-29"}
+              "departure" : { "airport": "NRT", "time": "2012-06-29T09:35+09"},
+              "arrival"   : { "airport": "MNL", "time": "2012-06-29T13:15+08"},
+              "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
         }
@@ -250,10 +273,11 @@
         {
           "flights": [
             {
-              "flightNum" : "JL???",
+              "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "MNL", "time": "2012-12-03"},
-              "arrival"   : { "airport": "NRT", "time": "2012-12-03"}
+              "departure" : { "airport": "MNL", "time": "2012-12-03T09:20+08"},
+              "arrival"   : { "airport": "NRT", "time": "2012-12-03T14:30+09"},
+              "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
         },
@@ -262,9 +286,11 @@
             {
               "flightNum" : "JL745",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "NRT", "time": "2012-12-14"},
-              "arrival"   : { "airport": "MNL", "time": "2012-12-14"},
-              "seat"      : "62E"
+              "aircraft"  : "Boeing 767",
+              "departure" : { "airport": "NRT", "time": "2012-12-14T18:00+09"},
+              "arrival"   : { "airport": "MNL", "time": "2012-12-14T22:05+08"},
+              "seat"      : "62E",
+              "notes"     : "Aircraft, STD, and STA are taken from Flight Stats."
             }
           ]
         }
@@ -278,8 +304,10 @@
             {
               "flightNum" : "5J118",
               "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
               "departure" : { "airport": "MNL", "time": "2013-08-06T16:40+08"},
-              "arrival"   : { "airport": "HKG", "time": "2013-08-06T18:40+08"}
+              "arrival"   : { "airport": "HKG", "time": "2013-08-06T18:40+08"},
+              "notes"     : "Aircraft is taken from Flight Stats."
             }
           ]
         },
@@ -288,8 +316,10 @@
             {
               "flightNum" : "5J119",
               "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
               "departure" : { "airport": "HKG", "time": "2013-08-12T19:30+08"},
-              "arrival"   : { "airport": "MNL", "time": "2013-08-12T21:30+08"}
+              "arrival"   : { "airport": "MNL", "time": "2013-08-12T21:30+08"},
+              "notes"     : "Aircraft is taken from Flight Stats."
             }
           ]
         }
@@ -411,7 +441,8 @@
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A321-200",
               "departure" : { "airport": "IST", "time": "2015-05-14T08:25+03"},
-              "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+02"}
+              "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+02"},
+              "seat"      : "12A"
             }
           ]
         },
@@ -429,7 +460,8 @@
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Boeing 777-300",
               "departure" : { "airport": "IST", "time": "2015-05-19T01:15+03"},
-              "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08"}
+              "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08"},
+              "seat"      : "12J"
             },
             {
               "flightNum" : "CX913",
@@ -453,14 +485,17 @@
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330",
               "departure" : { "airport": "MNL", "time": "2016-08-14T08:05+08"},
-              "arrival"   : { "airport": "MCT", "time": "2016-08-14T12:20+04"}
+              "arrival"   : { "airport": "MCT", "time": "2016-08-14T12:20+04"},
+              "seat"      : "28F"
             },
             {
               "flightNum" : "WY113",
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330-200",
               "departure" : { "airport": "MCT", "time": "2016-08-14T13:35+04"},
-              "arrival"   : { "airport": "FRA", "time": "2016-08-14T18:45+02"}
+              "arrival"   : { "airport": "FRA", "time": "2016-08-14T18:45+02"},
+              "seat"      : "28J"
+
             }
           ]
         },
@@ -471,7 +506,9 @@
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330-200",
               "departure" : { "airport": "FRA", "time": "2016-08-20T20:20+02"},
-              "arrival"   : { "airport": "MCT", "time": "2016-08-21T05:15+04"}
+              "arrival"   : { "airport": "MCT", "time": "2016-08-21T04:55+04"},
+              "seat"      : "25B"
+
             },
             {
               "flightNum" : "WY843",
@@ -479,7 +516,7 @@
               "aircraft"  : "Airbus A330",
               "departure" : { "airport": "MCT", "time": "2016-08-21T08:30+04"},
               "arrival"   : { "airport": "MNL", "time": "2016-08-21T21:15+08"},
-              "seat"      : "41K"
+              "seat"      : "40A"
             }
           ]
         }

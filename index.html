@@ -93,7 +93,7 @@ window.addEventListener('load', init);
 
 function processData() {
 
-   var tripIdx, journeyIdx, flightIdx, nodeIdx;
+   var tripIdx, journeyIdx, flightIdx, nodeIdx, stopIdx;
    var data, journeys, flights, flight, nodes, isEndpoint;
    var airportsInfo = {};
    var legsInfo = {};
@@ -114,7 +114,11 @@ function processData() {
         flight = flights[flightIdx];
 
         nodes = [flight.departure.airport];
-        if (flight.stops) nodes.push(flight.stops);
+        if (flight.stops) {
+          for (stopIdx = 0; stopIdx < flight.stops.length; stopIdx++) {
+            nodes.push(flight.stops[stopIdx].airport);
+          }
+        }
         nodes.push(flight.arrival.airport);
 
         // Add airports and mark some airports as endpoints
