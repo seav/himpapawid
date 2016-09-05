@@ -3,99 +3,238 @@
 <head>
 <meta charset="UTF-8">
 <title>Flight Record</title>
-<link rel="stylesheet" href="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
-<script src="https://npmcdn.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.0.0-rc.3/dist/leaflet.js"></script>
 <script src="arc.js"></script>
 <style type="text/css">
 
 html, body {
- margin: 0;
- padding: 0;
- height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
 }
 
 #map {
- height: 100%;
- background: #333 !important;
+  height: 100%;
+  background: #333 !important;
 }
 
 #map .leaflet-control-attribution {
- background: rgba(0,0,0,0.4);
- padding: 4px 10px;
- color: #CCC;
+  background: rgba(0,0,0,0.4);
+  padding: 4px 10px;
+  color: #CCC;
 }
 #map .leaflet-control-attribution a {
- color: #FF8;
+  color: #FF8;
 }
 
 #map .endpoint {
- margin-top: -8px !important;
- margin-left: -8px !important;
- width: 16px !important;
- height: 16px !important;
- border-radius: 8px;
- background: #FF8;
- z-index: 130 !important;
+  margin-top: -8px !important;
+  margin-left: -8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 8px;
+  background: #FF8;
+  z-index: 130 !important;
 }
 
 #map .midpoint {
- margin-top: -5px !important;
- margin-left: -5px !important;
- width: 10px !important;
- height: 10px !important;
- border-radius: 5px;
- background: #FC8;
- z-index: 120 !important;
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 5px;
+  background: #FC8;
+  z-index: 120 !important;
+}
+
+#map .unhighlighted {
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 5px;
+  background: #aaa;
+  opacity: 0.6;
+  z-index: 110 !important;
+}
+
+.leaflet-marker-icon {
+  transition: 200ms;
+}
+
+path {
+  transition: 200ms;
+}
+
+#pane {
+  z-index: 10000;
+  position: absolute;
+  top: 0; right: 0;
+  width: 280px;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
+  overflow: auto;
+  font-size: 14px;
+}
+
+#branding {
+  z-index: 10100;
+  position: fixed;
+  margin: -20px -20px 10px;
+  padding: 0 20px;
+  width: 280px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #444;
+  color: #ff8;
+}
+
+#pane h1 {
+  margin: 36px 0 8px;
+  padding: 0;
+  font-size: 20px;
+  color: #ffa080;
+  font-style: italic;
+}
+
+#trips-master {
+  margin: 0;
+  padding: 0 0 20px;
+}
+
+#trips-master .year {
+  float: left;
+  width: 60px;
+  padding: 8px 0px;
+  border-top: 1px solid #444;
+  font-weight: bold;
+  color: #888;
+}
+
+#trips-master .trip {
+  position: relative;
+  margin-left: 60px;
+  padding: 8px 0px;
+  border-top: 1px solid #444;
+  font-weight: bold;
+  color: #FF8;
+  transition: 200ms;
+}
+#trips-master .trip:hover {
+  color: #fa0;
+  cursor: pointer;
+}
+
+#trips-master .journeys {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+#trips-master .journey {
+  list-style: none;
+  margin: 0;
+  padding: 4px 20px 0;
+  color: #fff;
+}
+
+#trips-master .journey:before {
+  position: absolute;
+  left: 0;
+  content: "✈";
+  color: rgb(255,160,128);
+}
+
+#trips-master .journey-via {
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #888;
 }
 
 </style>
 </head>
 <body>
 <div id="map"></div>
+<div id="pane"></div>
 <script>
+'use strict';
 
 // App parameters
 var LONG_LIMIT             = -120;
 var INIT_LAT               = 14.5;
 var INIT_LON               = 121;
+var INIT_MARGIN            = 20;
 var INIT_ZOOM              = 4;
 var TILE_LAYER_URL         = 'http://fr.vaes9.com/tiles/{z}/{x}/{y}.png';
-var TILE_LAYER_ATTRIBUTION = 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
+var TILE_LAYER_ATTRIBUTION = 'Base map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
                              'under <a href="http://creativecommons.org/licenses/by/3.0">CC-BY 3.0</a>. ' +
-                             'Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, ' +
-                             'under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.';
+                             'Base map data by <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>.';
 var TILE_LAYER_MAX_ZOOM    = 6;
 var DATA_URL               = 'data.json';
+var NORMAL_LEG_COLOR       = '#ffa080';
+var NORMAL_LEG_OPACITY     = 0.6;
 
 var Map;
+var Trips = [], Airports = {}, Legs = {};
+
+var PaneBox;
+var TripsDL, AirlinesDL, AirportsTable;
 
 function init() {
+
+  PaneBox = document.getElementById('pane');
 
   var xhrObject = new XMLHttpRequest();
 
   // Initialize the map and add the tile layer
   Map = new L.Map('map', {
-    center : new L.LatLng(INIT_LAT, INIT_LON),
-    zoom   : INIT_ZOOM
+    attributionControl : false
   });
-  new L.tileLayer(TILE_LAYER_URL, {
-    attribution: TILE_LAYER_ATTRIBUTION,
-    maxZoom: TILE_LAYER_MAX_ZOOM,
+  L.control.attribution({
+    position : 'bottomleft',
+    prefix   : false,
   }).addTo(Map);
+  new L.tileLayer(TILE_LAYER_URL, {
+    attribution : TILE_LAYER_ATTRIBUTION,
+    maxZoom     : TILE_LAYER_MAX_ZOOM,
+  }).addTo(Map);
+  Map.fitBounds(
+    [
+      [INIT_LAT - INIT_MARGIN, INIT_LON - INIT_MARGIN],
+      [INIT_LAT + INIT_MARGIN, INIT_LON + INIT_MARGIN]
+    ],
+    {
+      paddingTopLeft: [0, 0],
+      paddingBottomRight: [320, 0],
+    }
+  );
 
   // Load the overlay data
   xhrObject.onreadystatechange = processData;
   xhrObject.open('GET', DATA_URL, true);
   xhrObject.overrideMimeType('text/plain');
   xhrObject.send(null);
+
+  document.getElementById('map').style.height = window.innerHeight + 'px';
+  document.getElementById('pane').style.height = (window.innerHeight - 40) + 'px';
 }
 window.addEventListener('load', init);
 
 function processData() {
 
-   var tripIdx, journeyIdx, flightIdx, nodeIdx, stopIdx;
-   var data, journeys, flights, flight, nodes, isEndpoint;
-   var airportsInfo = {};
+   var i, tripIdx, journeyIdx, flightIdx, nodeIdx, stopIdx;
+   var data, journeys, flights, flight, nodes, isEndpoint, title;
+   var rawTripDatum, tripDatum, rawJourneyDatum, journeyDatum, rawFlights, rawFlightDatum;
    var legsInfo = {};
    var startCode, endCode, startEndCode;
    var startCoord, endCoord;
@@ -106,35 +245,67 @@ function processData() {
 
   // Process the data
   for (tripIdx = 0; tripIdx < data.trips.length; tripIdx++) {
-    journeys = data.trips[tripIdx].journeys;
-    for (journeyIdx = 0; journeyIdx < journeys.length; journeyIdx++) {
-      flights = journeys[journeyIdx].flights;
-      for (flightIdx = 0; flightIdx < flights.length; flightIdx++) {
 
-        flight = flights[flightIdx];
+    rawTripDatum = data.trips[tripIdx];
+    tripDatum = {
+      title    : rawTripDatum.title,
+      journeys : [],
+      airports : {},
+      legs     : {},
+    };
+    Trips.push(tripDatum);
 
-        nodes = [flight.departure.airport];
-        if (flight.stops) {
-          for (stopIdx = 0; stopIdx < flight.stops.length; stopIdx++) {
-            nodes.push(flight.stops[stopIdx].airport);
+    for (journeyIdx = 0; journeyIdx < rawTripDatum.journeys.length; journeyIdx++) {
+
+      rawJourneyDatum = rawTripDatum.journeys[journeyIdx];
+      journeyDatum = {
+        airports: [],
+      };
+      tripDatum.journeys.push(journeyDatum);
+
+      rawFlights = rawJourneyDatum.flights;
+      for (flightIdx = 0; flightIdx < rawFlights.length; flightIdx++) {
+
+        rawFlightDatum = rawFlights[flightIdx];
+
+        if (flightIdx == 0) {
+          if (journeyIdx == 0) {
+            tripDatum.year = rawFlightDatum.departure.time.substr(0, 4);
+          }
+          journeyDatum.airports.push(rawFlightDatum.departure.airport);
+        }
+        journeyDatum.airports.push(rawFlightDatum.arrival.airport);
+
+        nodes = [rawFlightDatum.departure.airport];
+        if (rawFlightDatum.stops) {
+          for (stopIdx = 0; stopIdx < rawFlightDatum.stops.length; stopIdx++) {
+            nodes.push(rawFlightDatum.stops[stopIdx].airport);
           }
         }
-        nodes.push(flight.arrival.airport);
+        nodes.push(rawFlightDatum.arrival.airport);
 
         // Add airports and mark some airports as endpoints
         for (nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
 
           isEndpoint = (
             (flightIdx == 0 && nodeIdx == 0) ||
-            (flightIdx == flights.length - 1 && nodeIdx == nodes.length - 1)
+            (flightIdx == rawFlights.length - 1 && nodeIdx == nodes.length - 1)
           );
 
-          if (!airportsInfo[nodes[nodeIdx]]) {
-            airportsInfo[nodes[nodeIdx]] = {
+          if (!Airports[nodes[nodeIdx]]) {
+            Airports[nodes[nodeIdx]] = {
               isEndpoint: isEndpoint,
             };
           } else {
-            if (isEndpoint) airportsInfo[nodes[nodeIdx]].isEndpoint = true;
+            if (isEndpoint) Airports[nodes[nodeIdx]].isEndpoint = true;
+          }
+
+          if (!tripDatum.airports[nodes[nodeIdx]]) {
+            tripDatum.airports[nodes[nodeIdx]] = {
+              isEndpoint: isEndpoint,
+            };
+          } else {
+            if (isEndpoint) tripDatum.airports[nodes[nodeIdx]].isEndpoint = true;
           }
         }
 
@@ -150,7 +321,7 @@ function processData() {
           }
           startEndCode = startCode + '-' + endCode;
 
-          if (!legsInfo[startEndCode]) {
+          if (!Legs[startEndCode]) {
 
             startCoord = new arc.Coord(data.airports[startCode].lon, data.airports[startCode].lat);
             endCoord   = new arc.Coord(data.airports[endCode  ].lon, data.airports[endCode  ].lat);
@@ -165,48 +336,178 @@ function processData() {
               }
             }
 
-            legsInfo[startEndCode] = {
+            Legs[startEndCode] = {
               geojson: line.json(),
               tally: 1,
             };
 
           } else {
-            legsInfo[startEndCode].tally++;
+            Legs[startEndCode].tally++;
           }
+
+          tripDatum.legs[startEndCode] = true;
         }
       }
+
+      // Generate title for the journey
+      title = data.airports[journeyDatum.airports[0]].city + ' to ' +
+        data.airports[journeyDatum.airports[journeyDatum.airports.length - 1]].city;
+      if (journeyDatum.airports.length > 2) {
+        title += ' <span class="journey-via">via ';
+        for (i = 1; i < journeyDatum.airports.length - 1; i++) {
+          if (journeyDatum.airports.length > 3 && i == journeyDatum.airports.length - 2) {
+            title += ' and ';
+          }
+          title += data.airports[journeyDatum.airports[i]].city;
+          if (i < journeyDatum.airports.length - 3) {
+            title += ', ';
+          }
+        }
+        title += '</span>';
+      }
+      journeyDatum.title = title;
     }
   }
 
-  var legs = Object.keys(legsInfo);
+  var legs = Object.keys(Legs);
   for (i = 0; i < legs.length; i++) {
-    var strokeWidth = legsInfo[legs[i]].tally + 2;
-    var strokeOpacity = 0.6;
-    var strokeColor = 'rgb(255,160,128)';
-    var layer = L.geoJson(legsInfo[legs[i]].geojson, {
+    var layer = L.geoJson(Legs[legs[i]].geojson, {
       clickable: false,
       style: function() {
         return {
           stroke  : true,
-          color   : strokeColor,
-          opacity : strokeOpacity,
-          weight  : strokeWidth,
+          color   : NORMAL_LEG_COLOR,
+          opacity : NORMAL_LEG_OPACITY,
+          weight  : Legs[legs[i]].tally + 2,
         }
       }
-    });
-
-    Map.addLayer(layer);
+    }).addTo(Map);
+    Legs[legs[i]].layer = layer;
   }
 
-  var airports = Object.keys(airportsInfo);
+  var airports = Object.keys(Airports);
   for (i = 0; i < airports.length; i++) {
-    var airportData = data.airports[airports[i]];
-    var iconObj = L.divIcon({className: airportsInfo[airports[i]].isEndpoint ? 'endpoint' : 'midpoint'});
-    var marker = L.marker([airportData.lat, airportData.lon], {
+    var airportDatum = data.airports[airports[i]];
+    var iconObj = L.divIcon({
+      className: Airports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint',
+    });
+    var marker = L.marker([airportDatum.lat, airportDatum.lon], {
       icon: iconObj,
       clickable: false,
       keyboard: false,
     }).addTo(Map);
+    Airports[airports[i]].marker = marker;
+  }
+
+  listTrips();
+}
+
+function listTrips() {
+
+  var tripIdx, journeyIdx;
+  var year = '';
+  var yearDT, tripDD, journeysOL, journeyLI;
+
+  if (!TripsDL) {
+
+    TripsDL = document.createElement('dl');
+    TripsDL.id = 'trips-master';
+    for (tripIdx = 0; tripIdx < Trips.length; tripIdx++) {
+
+      if (year != Trips[tripIdx].year) {
+        year = Trips[tripIdx].year;
+        yearDT = document.createElement('dt');
+        yearDT.className = 'year';
+        yearDT.innerHTML = Trips[tripIdx].year;
+        TripsDL.appendChild(yearDT);
+      }
+
+      tripDD = document.createElement('dd');
+      tripDD.className = 'trip';
+      tripDD._tripIndex = tripIdx;
+      tripDD.innerHTML = Trips[tripIdx].title;
+      journeysOL = document.createElement('ol');
+      journeysOL.className = 'journeys';
+      tripDD.appendChild(journeysOL)
+      for (journeyIdx = 0; journeyIdx < Trips[tripIdx].journeys.length; journeyIdx++) {
+        journeyLI = document.createElement('li');
+        journeyLI.className = 'journey';
+        journeyLI.innerHTML = Trips[tripIdx].journeys[journeyIdx].title;
+        journeysOL.appendChild(journeyLI);
+      }
+      TripsDL.appendChild(tripDD);
+
+      var highlightTrip = function(e) {
+        var idx = e.currentTarget._tripIndex;
+        highlightMapLayers(Trips[idx].airports, Trips[idx].legs);
+      };
+      tripDD.addEventListener('mouseover', highlightTrip);
+      tripDD.addEventListener('mousedown', highlightTrip);
+      tripDD.addEventListener('mouseout', resetMapStyle);
+    }
+  }
+
+  PaneBox.innerHTML = '<div id="branding">Flight Record</div><h1>Trips</h1>';
+  PaneBox.appendChild(TripsDL);
+}
+
+function highlightMapLayers(highlightedAirports, highlightedLegs) {
+
+  var airports = Object.keys(Airports);
+  for (i = 0; i < airports.length; i++) {
+    var divIcon = Airports[airports[i]].marker._icon;
+    if (highlightedAirports[airports[i]]) {
+      var className = highlightedAirports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint';
+      divIcon.className = divIcon.className.replace('endpoint', className);
+      divIcon.className = divIcon.className.replace('midpoint', className);
+      divIcon.className = divIcon.className.replace('unhighlighted', className);
+    } else {
+      divIcon.className = divIcon.className.replace('endpoint', 'unhighlighted');
+      divIcon.className = divIcon.className.replace('midpoint', 'unhighlighted');
+    }
+  }
+
+  var legs = Object.keys(Legs);
+  var i, style;
+  for (var i = 0; i < legs.length; i++) {
+    if (highlightedLegs[legs[i]]) {
+      style = {
+        stroke  : true,
+        color   : NORMAL_LEG_COLOR,
+        opacity : 1,
+        weight  : 3,
+      };
+    } else {
+      style = {
+        stroke  : true,
+        color   : '#888',
+        opacity : 0.4,
+        weight  : Legs[legs[i]].tally + 2,
+      };
+    }
+    Legs[legs[i]].layer.setStyle(style);
+  }
+}
+
+function resetMapStyle() {
+
+  var airports = Object.keys(Airports);
+  for (i = 0; i < airports.length; i++) {
+    var divIcon = Airports[airports[i]].marker._icon;
+    var className = Airports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint';
+    divIcon.className = divIcon.className.replace('endpoint', className);
+    divIcon.className = divIcon.className.replace('midpoint', className);
+    divIcon.className = divIcon.className.replace('unhighlighted', className);
+  }
+
+  var legs = Object.keys(Legs);
+  for (var i = 0; i < legs.length; i++) {
+    Legs[legs[i]].layer.setStyle({
+      stroke  : true,
+      color   : NORMAL_LEG_COLOR,
+      opacity : NORMAL_LEG_OPACITY,
+      weight  : Legs[legs[i]].tally + 2,
+    });
   }
 }
 
