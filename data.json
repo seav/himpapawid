@@ -62,7 +62,8 @@
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 747",
               "departure" : { "airport": "NRT", "time": "2006-04-28T09:40+09"},
-              "arrival"   : { "airport": "MNL", "time": "2006-04-28T13:05+08"}
+              "arrival"   : { "airport": "MNL", "time": "2006-04-28T13:05+08"},
+              "seat"      : "56A"
             }
           ]
         }
