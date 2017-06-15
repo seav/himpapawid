@@ -522,6 +522,53 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Cadasta Developer Retreat 2017",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "EK337",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "MNL", "time": "2017-06-18T06:40+08"},
+              "arrival"   : { "airport": "DXB", "time": "2017-06-18T11:05+04"},
+              "seat"      : "48K"
+            },
+            {
+              "flightNum" : "EK143",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DXB", "time": "2017-06-18T14:30+04"},
+              "arrival"   : { "airport": "MAD", "time": "2017-06-18T20:20+02"},
+              "seat"      : "48A"
+
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "EK188",
+              "airline"   : "Emirates",
+              "aircraft"  : "Airbus A380-800",
+              "departure" : { "airport": "BCN", "time": "2017-06-27T22:40+02"},
+              "arrival"   : { "airport": "DXB", "time": "2017-06-27T07:35+04"},
+              "seat"      : "77G"
+
+            },
+            {
+              "flightNum" : "EK334",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DXB", "time": "2017-06-28T09:20+04"},
+              "arrival"   : { "airport": "MNL", "time": "2017-06-28T22:10+08"},
+              "seat"      : "48K"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
@@ -626,6 +673,18 @@
       "lon"  :   8.5706,
       "name" : "Frankfurt Airport",
       "city" : "Frankfurt"
+    },
+    "MAD": {
+      "lat"  :  40.4722,
+      "lon"  :  -3.5608,
+      "name" : "Adolfo Suárez Madrid–Barajas Airport",
+      "city" : "Madrid"
+    },
+    "BCN": {
+      "lat"  :  41.2969,
+      "lon"  :   2.0783,
+      "name" : "Barcelona–El Prat Airport",
+      "city" : "Barcelona"
     }
   }
 }
