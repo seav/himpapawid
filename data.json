@@ -8,15 +8,17 @@
             {
               "flightNum" : "CX906",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "MNL", "time": "1999-05-05T10:50+08"},
-              "arrival"   : { "airport": "HKG", "time": "1999-05-05T13:15+08"},
+              "departure" : { "airport": "MNL", "time": "1999-05-05T10:50+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "HKG", "time": "1999-05-05T13:15+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data."
             },
             {
               "flightNum" : "CX838",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "HKG", "time": "1999-05-05T16:20+08"},
-              "arrival"   : { "airport": "YVR", "time": "1999-05-05T13:15-07"},
+              "departure" : { "airport": "HKG", "time": "1999-05-05T16:20+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "YVR", "time": "1999-05-05T13:15-07", "terminal": "Main Terminal"},
+              "class"     : "Economy",
               "notes"     : "Flight number, date, STD, and STA are guessed from 2016 flight data."
             }
           ]
@@ -26,15 +28,17 @@
             {
               "flightNum" : "CX837",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "YVR", "time": "1999-05-27T14:45-07"},
-              "arrival"   : { "airport": "HKG", "time": "1999-05-28T19:15+08"},
+              "departure" : { "airport": "YVR", "time": "1999-05-27T14:45-07", "terminal": "Main Terminal"},
+              "arrival"   : { "airport": "HKG", "time": "1999-05-28T19:15+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Flight number, date, STD, and STA are guessed from 2016 flight data."
             },
             {
               "flightNum" : "CX905",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "HKG", "time": "1999-05-28T22:05+08"},
-              "arrival"   : { "airport": "MNL", "time": "1999-05-29T00:15+08"},
+              "departure" : { "airport": "HKG", "time": "1999-05-28T22:05+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "MNL", "time": "1999-05-29T00:15+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data."
             }
           ]
@@ -50,8 +54,9 @@
               "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 747",
-              "departure" : { "airport": "MNL", "time": "2006-04-04T09:10+08"},
-              "arrival"   : { "airport": "NRT", "time": "2006-04-04T14:25+09"}
+              "departure" : { "airport": "MNL", "time": "2006-04-04T09:10+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "NRT", "time": "2006-04-04T14:25+09", "terminal": "Terminal 2"},
+              "class"     : "Economy"
             }
           ]
         },
@@ -61,8 +66,9 @@
               "flightNum" : "JL741",
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 747",
-              "departure" : { "airport": "NRT", "time": "2006-04-28T09:40+09"},
-              "arrival"   : { "airport": "MNL", "time": "2006-04-28T13:05+08"},
+              "departure" : { "airport": "NRT", "time": "2006-04-28T09:40+09", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "MNL", "time": "2006-04-28T13:05+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "seat"      : "56A"
             }
           ]
@@ -78,8 +84,9 @@
               "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 747",
-              "departure" : { "airport": "MNL", "time": "2006-11-20T09:40+08"},
-              "arrival"   : { "airport": "NRT", "time": "2006-11-20T14:40+09"}
+              "departure" : { "airport": "MNL", "time": "2006-11-20T09:40+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "NRT", "time": "2006-11-20T14:40+09", "terminal": "Terminal 2"},
+              "class"     : "Economy"
             }
           ]
         },
@@ -89,8 +96,9 @@
               "flightNum" : "JL741",
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 747",
-              "departure" : { "airport": "NRT", "time": "2006-12-15T09:35+09"},
-              "arrival"   : { "airport": "MNL", "time": "2006-12-15T13:25+08"}
+              "departure" : { "airport": "NRT", "time": "2006-12-15T09:35+09", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "MNL", "time": "2006-12-15T13:25+08", "terminal": "Terminal 1"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -105,8 +113,9 @@
               "flightNum" : "Z2???",
               "airline"   : "SEAIR",
               "aircraft"  : "Fairchild-Dornier 328",
-              "departure" : { "airport": "MNL", "time": "2008-01-11T08:00+08"},
-              "arrival"   : { "airport": "MPH", "time": "2008-01-11T08:35+08"}
+              "departure" : { "airport": "MNL", "time": "2008-01-11T08:00+08", "terminal": "Terminal 4"},
+              "arrival"   : { "airport": "MPH", "time": "2008-01-11T08:35+08"},
+              "class"     : "Economy"
             }
           ]
         },
@@ -117,7 +126,8 @@
               "airline"   : "SEAIR",
               "aircraft"  : "Fairchild-Dornier 328",
               "departure" : { "airport": "MPH", "time": "2008-01-13T16:35+08"},
-              "arrival"   : { "airport": "MNL", "time": "2008-01-13T17:10+08"}
+              "arrival"   : { "airport": "MNL", "time": "2008-01-13T17:10+08", "terminal": "Terminal 4"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -131,8 +141,9 @@
             {
               "flightNum" : "5J108",
               "airline"   : "Cebu Pacific",
-              "departure" : { "airport": "MNL", "time": "2011-03-03T05:40+08"},
-              "arrival"   : { "airport": "HKG", "time": "2011-03-03T07:40+08"},
+              "departure" : { "airport": "MNL", "time": "2011-03-03T05:40+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "HKG", "time": "2011-03-03T07:40+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
@@ -142,8 +153,9 @@
             {
               "flightNum" : "5J111",
               "airline"   : "Cebu Pacific",
-              "departure" : { "airport": "HKG", "time": "2011-03-06T10:40+08"},
-              "arrival"   : { "airport": "MNL", "time": "2011-03-06T12:40+08"},
+              "departure" : { "airport": "HKG", "time": "2011-03-06T10:40+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "MNL", "time": "2011-03-06T12:40+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
@@ -158,14 +170,16 @@
             {
               "flightNum" : "PR732",
               "airline"   : "Philippine Airlines",
-              "departure" : { "airport": "MNL", "time": "2011-08-02T19:30+08"},
-              "arrival"   : { "airport": "BKK", "time": "2011-08-02T21:50+07"}
+              "departure" : { "airport": "MNL", "time": "2011-08-02T19:30+08", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "BKK", "time": "2011-08-02T21:50+07"},
+              "class"     : "Economy"
             },
             {
               "flightNum" : "LY82",
               "airline"   : "El Al",
               "departure" : { "airport": "BKK", "time": "2011-08-03T00:10+07"},
-              "arrival"   : { "airport": "TLV", "time": "2011-08-03T07:00+03"}
+              "arrival"   : { "airport": "TLV", "time": "2011-08-03T07:00+03", "terminal": "Terminal 3"},
+              "class"     : "Economy"
             }
           ]
         },
@@ -174,14 +188,16 @@
             {
               "flightNum" : "LY75",
               "airline"   : "El Al",
-              "departure" : { "airport": "TLV", "time": "2011-08-08T22:00+03"},
-              "arrival"   : { "airport": "HKG", "time": "2011-08-09T13:50+08"}
+              "departure" : { "airport": "TLV", "time": "2011-08-08T22:00+03", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "HKG", "time": "2011-08-09T13:50+08", "terminal": "Terminal 1"},
+              "class"     : "Economy"
             },
             {
               "flightNum" : "CX903",
               "airline"   : "Cathay Pacific",
-              "departure" : { "airport": "HKG", "time": "2011-08-09T16:35+08"},
-              "arrival"   : { "airport": "MNL", "time": "2011-08-09T18:40+08"}
+              "departure" : { "airport": "HKG", "time": "2011-08-09T16:35+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "MNL", "time": "2011-08-09T18:40+08", "terminal": "Terminal 1"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -204,6 +220,7 @@
                 }
               ],
               "arrival"   : { "airport": "AMS", "time": "2012-03-29T06:10+02"},
+              "class"     : "Economy",
               "notes"     : "Stop STA and STD are taken from Flight Stats."
             },
             {
@@ -211,6 +228,7 @@
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "AMS", "time": "2012-03-29T10:05+02"},
               "arrival"   : { "airport": "TXL", "time": "2012-03-29T11:20+02"},
+              "class"     : "Economy",
               "notes"     : "Flight was rebooked from KL1821 due to the previous flight’s delay. Flight data is taken from Flight Stats."
             }
           ]
@@ -221,7 +239,8 @@
               "flightNum" : "KL1830",
               "airline"   : "KLM Royal Dutch Airlines",
               "departure" : { "airport": "TXL", "time": "2012-04-02T17:25+02"},
-              "arrival"   : { "airport": "AMS", "time": "2012-04-02T18:45+02"}
+              "arrival"   : { "airport": "AMS", "time": "2012-04-02T18:45+02"},
+              "class"     : "Economy"
             },
             {
               "flightNum" : "KL807",
@@ -235,6 +254,7 @@
                 }
               ],
               "arrival"   : { "airport": "MNL", "time": "2012-04-03T18:15+08"},
+              "class"     : "Economy",
               "notes"     : "Stop STA and STD are taken from Flight Stats."
             }
           ]
@@ -249,8 +269,9 @@
             {
               "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "MNL", "time": "2012-06-11T09:00+08"},
-              "arrival"   : { "airport": "NRT", "time": "2012-06-11T14:30+09"},
+              "departure" : { "airport": "MNL", "time": "2012-06-11T09:00+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "NRT", "time": "2012-06-11T14:30+09", "terminal": "Terminal 2"},
+              "class"     : "Economy",
               "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
@@ -260,8 +281,9 @@
             {
               "flightNum" : "JL741",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "NRT", "time": "2012-06-29T09:35+09"},
-              "arrival"   : { "airport": "MNL", "time": "2012-06-29T13:15+08"},
+              "departure" : { "airport": "NRT", "time": "2012-06-29T09:35+09", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "MNL", "time": "2012-06-29T13:15+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
@@ -276,8 +298,9 @@
             {
               "flightNum" : "JL746",
               "airline"   : "Japan Airlines",
-              "departure" : { "airport": "MNL", "time": "2012-12-03T09:20+08"},
-              "arrival"   : { "airport": "NRT", "time": "2012-12-03T14:30+09"},
+              "departure" : { "airport": "MNL", "time": "2012-12-03T09:20+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "NRT", "time": "2012-12-03T14:30+09", "terminal": "Terminal 2"},
+              "class"     : "Economy",
               "notes"     : "Flight number is taken from passport; STD and STA are taken from Flight Stats."
             }
           ]
@@ -288,8 +311,9 @@
               "flightNum" : "JL745",
               "airline"   : "Japan Airlines",
               "aircraft"  : "Boeing 767",
-              "departure" : { "airport": "NRT", "time": "2012-12-14T18:00+09"},
-              "arrival"   : { "airport": "MNL", "time": "2012-12-14T22:05+08"},
+              "departure" : { "airport": "NRT", "time": "2012-12-14T18:00+09", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "MNL", "time": "2012-12-14T22:05+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "seat"      : "62E",
               "notes"     : "Aircraft, STD, and STA are taken from Flight Stats."
             }
@@ -306,8 +330,9 @@
               "flightNum" : "5J118",
               "airline"   : "Cebu Pacific",
               "aircraft"  : "Airbus A320",
-              "departure" : { "airport": "MNL", "time": "2013-08-06T16:40+08"},
-              "arrival"   : { "airport": "HKG", "time": "2013-08-06T18:40+08"},
+              "departure" : { "airport": "MNL", "time": "2013-08-06T16:40+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "HKG", "time": "2013-08-06T18:40+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "notes"     : "Aircraft is taken from Flight Stats."
             }
           ]
@@ -318,8 +343,9 @@
               "flightNum" : "5J119",
               "airline"   : "Cebu Pacific",
               "aircraft"  : "Airbus A320",
-              "departure" : { "airport": "HKG", "time": "2013-08-12T19:30+08"},
-              "arrival"   : { "airport": "MNL", "time": "2013-08-12T21:30+08"},
+              "departure" : { "airport": "HKG", "time": "2013-08-12T19:30+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "MNL", "time": "2013-08-12T21:30+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "notes"     : "Aircraft is taken from Flight Stats."
             }
           ]
@@ -335,16 +361,18 @@
               "flightNum" : "EK337",
               "airline"   : "Emirates",
               "aircraft"  : "Boeing 777-300",
-              "departure" : { "airport": "MNL", "time": "2014-08-05T08:55+08"},
-              "arrival"   : { "airport": "DXB", "time": "2014-08-05T13:20+04"},
+              "departure" : { "airport": "MNL", "time": "2014-08-05T08:55+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "DXB", "time": "2014-08-05T13:20+04", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "8B"
             },
             {
               "flightNum" : "EK5",
               "airline"   : "Emirates",
               "aircraft"  : "Airbus A380-800",
-              "departure" : { "airport": "DXB", "time": "2014-08-05T15:45+04"},
-              "arrival"   : { "airport": "LHR", "time": "2014-08-05T20:15+01"},
+              "departure" : { "airport": "DXB", "time": "2014-08-05T15:45+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "LHR", "time": "2014-08-05T20:15+01", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "86F"
             }
           ]
@@ -355,15 +383,17 @@
               "flightNum" : "EK4",
               "airline"   : "Emirates",
               "aircraft"  : "Airbus A380-800",
-              "departure" : { "airport": "LHR", "time": "2014-08-14T20:40+01"},
-              "arrival"   : { "airport": "DXB", "time": "2014-08-15T06:30+04"}
+              "departure" : { "airport": "LHR", "time": "2014-08-14T20:40+01", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DXB", "time": "2014-08-15T06:30+04", "terminal": "Terminal 3"},
+              "class"     : "Economy"
             },
             {
               "flightNum" : "EK334",
               "airline"   : "Emirates",
               "aircraft"  : "Boeing 777-300",
-              "departure" : { "airport": "DXB", "time": "2014-08-15T09:20+04"},
-              "arrival"   : { "airport": "MNL", "time": "2014-08-15T22:10+08"}
+              "departure" : { "airport": "DXB", "time": "2014-08-15T09:20+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "MNL", "time": "2014-08-15T22:10+08", "terminal": "Terminal 3"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -378,8 +408,9 @@
               "flightNum" : "PR1853",
               "airline"   : "Philippine Airlines",
               "aircraft"  : "Airbus A320-200",
-              "departure" : { "airport": "MNL", "time": "2015-01-24T11:00+08"},
-              "arrival"   : { "airport": "CEB", "time": "2015-01-24T12:15+08"}
+              "departure" : { "airport": "MNL", "time": "2015-01-24T11:00+08", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "CEB", "time": "2015-01-24T12:15+08"},
+              "class"     : "Economy"
             }
           ]
         },
@@ -390,7 +421,8 @@
               "airline"   : "Philippine Airlines",
               "aircraft"  : "Airbus A320-200",
               "departure" : { "airport": "CEB", "time": "2015-01-26T22:00+08"},
-              "arrival"   : { "airport": "MNL", "time": "2015-01-26T23:15+08"}
+              "arrival"   : { "airport": "MNL", "time": "2015-01-26T23:15+08", "terminal": "Terminal 2"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -405,8 +437,9 @@
               "flightNum" : "PR422",
               "airline"   : "Philippine Airlines",
               "aircraft"  : "Airbus A321",
-              "departure" : { "airport": "MNL", "time": "2015-02-22T08:50+08"},
-              "arrival"   : { "airport": "HND", "time": "2015-02-22T14:00+09"},
+              "departure" : { "airport": "MNL", "time": "2015-02-22T08:50+08", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "HND", "time": "2015-02-22T14:00+09", "terminal": "International Terminal"},
+              "class"     : "Economy",
               "seat"      : "46C"
             }
           ]
@@ -417,8 +450,9 @@
               "flightNum" : "PR427",
               "airline"   : "Philippine Airlines",
               "aircraft"  : "Airbus A321",
-              "departure" : { "airport": "NRT", "time": "2015-02-28T13:10+09"},
-              "arrival"   : { "airport": "MNL", "time": "2015-02-28T17:10+08"}
+              "departure" : { "airport": "NRT", "time": "2015-02-28T13:10+09", "terminal": "Terminal 2"},
+              "arrival"   : { "airport": "MNL", "time": "2015-02-28T17:10+08", "terminal": "Terminal 2"},
+              "class"     : "Economy"
             }
           ]
         }
@@ -433,16 +467,18 @@
               "flightNum" : "TK85",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A340",
-              "departure" : { "airport": "MNL", "time": "2015-05-13T20:50+08"},
-              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+03"},
+              "departure" : { "airport": "MNL", "time": "2015-05-13T20:50+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "IST", "time": "2015-05-14T05:05+03", "terminal": "International Terminal"},
+              "class"     : "Economy",
               "seat"      : "34A"
             },
             {
               "flightNum" : "TK1721",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A321-200",
-              "departure" : { "airport": "IST", "time": "2015-05-14T08:25+03"},
+              "departure" : { "airport": "IST", "time": "2015-05-14T08:25+03", "terminal": "International Terminal"},
               "arrival"   : { "airport": "TXL", "time": "2015-05-14T10:20+02"},
+              "class"     : "Economy",
               "seat"      : "12A"
             }
           ]
@@ -454,22 +490,25 @@
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Airbus A321-200",
               "departure" : { "airport": "TXL", "time": "2015-05-18T19:00+02"},
-              "arrival"   : { "airport": "IST", "time": "2015-05-18T22:50+03"}
+              "arrival"   : { "airport": "IST", "time": "2015-05-18T22:50+03", "terminal": "International Terminal"},
+              "class"     : "Economy"
             },
             {
               "flightNum" : "TK70",
               "airline"   : "Turkish Airlines",
               "aircraft"  : "Boeing 777-300",
-              "departure" : { "airport": "IST", "time": "2015-05-19T01:15+03"},
-              "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08"},
+              "departure" : { "airport": "IST", "time": "2015-05-19T01:15+03", "terminal": "International Terminal"},
+              "arrival"   : { "airport": "HKG", "time": "2015-05-19T16:40+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "seat"      : "12J"
             },
             {
               "flightNum" : "CX913",
               "airline"   : "Cathay Pacific",
               "aircraft"  : "Boeing 777-300",
-              "departure" : { "airport": "HKG", "time": "2015-05-19T20:25+08"},
-              "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08"},
+              "departure" : { "airport": "HKG", "time": "2015-05-19T20:25+08", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "MNL", "time": "2015-05-19T22:35+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "41K"
             }
           ]
@@ -485,8 +524,9 @@
               "flightNum" : "WY844",
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330",
-              "departure" : { "airport": "MNL", "time": "2016-08-14T08:05+08"},
+              "departure" : { "airport": "MNL", "time": "2016-08-14T08:05+08", "terminal": "Terminal 1"},
               "arrival"   : { "airport": "MCT", "time": "2016-08-14T12:20+04"},
+              "class"     : "Economy",
               "seat"      : "28F"
             },
             {
@@ -494,7 +534,8 @@
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330-200",
               "departure" : { "airport": "MCT", "time": "2016-08-14T13:35+04"},
-              "arrival"   : { "airport": "FRA", "time": "2016-08-14T18:45+02"},
+              "arrival"   : { "airport": "FRA", "time": "2016-08-14T18:45+02", "terminal": "Terminal 2"},
+              "class"     : "Economy",
               "seat"      : "28J"
 
             }
@@ -506,8 +547,9 @@
               "flightNum" : "WY114",
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330-200",
-              "departure" : { "airport": "FRA", "time": "2016-08-20T20:20+02"},
+              "departure" : { "airport": "FRA", "time": "2016-08-20T20:20+02", "terminal": "Terminal 2"},
               "arrival"   : { "airport": "MCT", "time": "2016-08-21T04:55+04"},
+              "class"     : "Economy",
               "seat"      : "25B"
 
             },
@@ -516,7 +558,8 @@
               "airline"   : "Oman Air",
               "aircraft"  : "Airbus A330",
               "departure" : { "airport": "MCT", "time": "2016-08-21T08:30+04"},
-              "arrival"   : { "airport": "MNL", "time": "2016-08-21T21:15+08"},
+              "arrival"   : { "airport": "MNL", "time": "2016-08-21T21:15+08", "terminal": "Terminal 1"},
+              "class"     : "Economy",
               "seat"      : "40A"
             }
           ]
@@ -532,18 +575,19 @@
               "flightNum" : "EK337",
               "airline"   : "Emirates",
               "aircraft"  : "Boeing 777-300ER",
-              "departure" : { "airport": "MNL", "time": "2017-06-18T06:40+08"},
-              "arrival"   : { "airport": "DXB", "time": "2017-06-18T11:05+04"},
+              "departure" : { "airport": "MNL", "time": "2017-06-18T06:40+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DXB", "time": "2017-06-18T11:05+04", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "48K"
             },
             {
               "flightNum" : "EK143",
               "airline"   : "Emirates",
               "aircraft"  : "Boeing 777-300ER",
-              "departure" : { "airport": "DXB", "time": "2017-06-18T14:30+04"},
-              "arrival"   : { "airport": "MAD", "time": "2017-06-18T20:20+02"},
+              "departure" : { "airport": "DXB", "time": "2017-06-18T14:30+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "MAD", "time": "2017-06-18T20:20+02", "terminal": "Terminal 4S"},
+              "class"     : "Economy",
               "seat"      : "48A"
-
             }
           ]
         },
@@ -553,8 +597,9 @@
               "flightNum" : "EK188",
               "airline"   : "Emirates",
               "aircraft"  : "Airbus A380-800",
-              "departure" : { "airport": "BCN", "time": "2017-06-27T22:40+02"},
-              "arrival"   : { "airport": "DXB", "time": "2017-06-27T07:35+04"},
+              "departure" : { "airport": "BCN", "time": "2017-06-27T22:40+02", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "DXB", "time": "2017-06-27T07:35+04", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "77G"
 
             },
@@ -562,8 +607,9 @@
               "flightNum" : "EK334",
               "airline"   : "Emirates",
               "aircraft"  : "Boeing 777-300ER",
-              "departure" : { "airport": "DXB", "time": "2017-06-28T09:20+04"},
-              "arrival"   : { "airport": "MNL", "time": "2017-06-28T22:10+08"},
+              "departure" : { "airport": "DXB", "time": "2017-06-28T09:20+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "MNL", "time": "2017-06-28T22:10+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
               "seat"      : "48K"
             }
           ]
