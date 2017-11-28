@@ -615,6 +615,95 @@
           ]
         }
       ]
+    },
+    {
+      "title": "WikidataCon 2017",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "KL808",
+              "airline"   : "KLM Royal Dutch Airlines",
+              "aircraft"  : "Boeing 777-300",
+              "departure" : { "airport": "MNL", "time": "2017-10-26T20:05+08"},
+              "stops"     : [
+                {
+                  "airport"   : "TPE",
+                  "arrival"   : "2017-10-26T22:30+08",
+                  "departure" : "2017-10-26T23:55+08"
+                }
+              ],
+              "arrival"   : { "airport": "AMS", "time": "2017-10-27T06:55+02"},
+              "class"     : "Economy",
+              "seat"      : "43K",
+              "notes"     : "Stop STA and STD are taken from Flight Stats."
+            },
+            {
+              "flightNum" : "KL1823",
+              "airline"   : "KLM Royal Dutch Airlines",
+              "aircraft"  : "Boeing 737-900",
+              "departure" : { "airport": "AMS", "time": "2017-10-27T10:15+02"},
+              "arrival"   : { "airport": "TXL", "time": "2017-10-27T11:30+02"},
+              "class"     : "Economy",
+              "seat"      : "14A"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "KL807",
+              "airline"   : "KLM Royal Dutch Airlines",
+              "aircraft"  : "Boeing 777-300",
+              "departure" : { "airport": "AMS", "time": "2017-11-05T20:50+01"},
+              "stops"     : [
+                {
+                  "airport"   : "TPE",
+                  "arrival"   : "2017-11-06T15:50+08",
+                  "departure" : "2017-11-06T16:55+08"
+                }
+              ],
+              "arrival"   : { "airport": "MNL", "time": "2017-11-06T19:25+08"},
+              "class"     : "Economy",
+              "seat"      : "62G",
+              "notes"     : "Stop STA and STD are extrapolated from Flight Stats."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Kantō Family Vacation",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "NH870",
+              "airline"   : "All Nippon Airways",
+              "aircraft"  : "Boeing 787-9",
+              "departure" : { "airport": "MNL", "time": "2017-11-21T14:50+08"},
+              "arrival"   : { "airport": "HND", "time": "2017-11-21T20:00+09"},
+              "class"     : "Economy",
+              "seat"      : "29J",
+              "notes"     : "Actually seated at 29K"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "NH869",
+              "airline"   : "All Nippon Airways",
+              "aircraft"  : "Boeing 787-9",
+              "departure" : { "airport": "HND", "time": "2017-11-28T09:35+09"},
+              "arrival"   : { "airport": "MNL", "time": "2017-11-28T13:35+08"},
+              "class"     : "Economy",
+              "seat"      : "23K",
+              "notes"     : "Actually seated at 23F"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
