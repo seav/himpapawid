@@ -704,6 +704,55 @@
           ]
         }
       ]
+    },
+    {
+      "title": "State of the Map 2018",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "EK333",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "MNL", "time": "2018-07-26T18:15+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DXB", "time": "2018-07-26T23:00+04", "terminal": "Terminal 3"},
+              "class"     : "Business",
+              "seat"      : "5A"
+            },
+            {
+              "flightNum" : "EK101",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DXB", "time": "2018-07-27T03:35+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "MXP", "time": "2018-07-27T08:15+02", "terminal": "Terminal 1"},
+              "class"     : "Economy",
+              "seat"      : "48K"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "EK96",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "FCO", "time": "2018-08-06T22:05+02", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DXB", "time": "2018-08-07T05:55+04", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "44K"
+            },
+            {
+              "flightNum" : "EK334",
+              "airline"   : "Emirates",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DXB", "time": "2018-08-07T07:35+04", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "MNL", "time": "2018-08-07T20:25+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "14G"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
@@ -820,6 +869,18 @@
       "lon"  :   2.0783,
       "name" : "Barcelona–El Prat Airport",
       "city" : "Barcelona"
+    },
+    "MXP": {
+      "lat"  :  45.6300,
+      "lon"  :   8.7231,
+      "name" : "Milan–Malpensa Airport",
+      "city" : "Milan"
+    },
+    "FCO": {
+      "lat"  :  41.8003,
+      "lon"  :  12.2389,
+      "name" : "Rome–Fiumicino International Airport ",
+      "city" : "Rome"
     }
   }
 }
