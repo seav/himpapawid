@@ -685,7 +685,7 @@
               "arrival"   : { "airport": "HND", "time": "2017-11-21T20:00+09"},
               "class"     : "Economy",
               "seat"      : "29J",
-              "notes"     : "Actually seated at 29K"
+              "notes"     : "Actually seated at 29K."
             }
           ]
         },
@@ -699,7 +699,7 @@
               "arrival"   : { "airport": "MNL", "time": "2017-11-28T13:35+08"},
               "class"     : "Economy",
               "seat"      : "23K",
-              "notes"     : "Actually seated at 23F"
+              "notes"     : "Actually seated at 23F."
             }
           ]
         }
@@ -739,7 +739,7 @@
               "departure" : { "airport": "FCO", "time": "2018-08-06T22:05+02", "terminal": "Terminal 3"},
               "arrival"   : { "airport": "DXB", "time": "2018-08-07T05:55+04", "terminal": "Terminal 3"},
               "class"     : "Economy",
-              "seat"      : "44K"
+              "seat"      : "46A"
             },
             {
               "flightNum" : "EK334",
@@ -747,8 +747,9 @@
               "aircraft"  : "Boeing 777-300ER",
               "departure" : { "airport": "DXB", "time": "2018-08-07T07:35+04", "terminal": "Terminal 3"},
               "arrival"   : { "airport": "MNL", "time": "2018-08-07T20:25+08", "terminal": "Terminal 3"},
-              "class"     : "Economy",
-              "seat"      : "14G"
+              "class"     : "Business",
+              "seat"      : "6A",
+              "notes"     : "Was automatically upgraded from economy class at seat 46K."
             }
           ]
         }
