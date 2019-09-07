@@ -754,6 +754,69 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Mindanao OSM Workshops: Davao Leg",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "5J971",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A330-343",
+              "departure" : { "airport": "MNL", "time": "2019-05-26T16:45+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DVO", "time": "2019-05-26T18:55+08"},
+              "class"     : "Economy",
+              "seat"      : "27E",
+              "notes"     : "Flight was delayed by 5.5 hours mostly due to inclement weather."
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "5J974",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
+              "departure" : { "airport": "DVO", "time": "2019-05-28T21:20+08"},
+              "arrival"   : { "airport": "MNL", "time": "2019-05-28T23:25+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "14F"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Pista ng Mapa 2019",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "5J629",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
+              "departure" : { "airport": "MNL", "time": "2019-07-31T14:50+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DGT", "time": "2019-07-31T16:25+08"},
+              "class"     : "Economy",
+              "seat"      : "3D"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "5J630",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
+              "departure" : { "airport": "DGT", "time": "2019-08-06T17:30+08"},
+              "arrival"   : { "airport": "MNL", "time": "2019-08-06T19:00+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "15F"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
@@ -882,6 +945,18 @@
       "lon"  :  12.2389,
       "name" : "Rome–Fiumicino International Airport ",
       "city" : "Rome"
+    },
+    "DVO": {
+      "lat"  :   7.1255,
+      "lon"  : 125.6458,
+      "name" : "Francisco Bangoy International Airport ",
+      "city" : "Davao"
+    },
+    "DGT": {
+      "lat"  :   9.3343,
+      "lon"  : 123.2991,
+      "name" : "Sibulan Airport",
+      "city" : "Dumaguete"
     }
   }
 }
