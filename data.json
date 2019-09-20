@@ -817,6 +817,55 @@
           ]
         }
       ]
+    },
+    {
+      "title": "State of the Map 2019",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "QR929",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "MNL", "time": "2019-09-19T23:40+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DOH", "time": "2019-09-20T03:55+03"},
+              "class"     : "Economy",
+              "seat"      : "44K"
+            },
+            {
+              "flightNum" : "QR67",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Airbus A380-800",
+              "departure" : { "airport": "DOH", "time": "2019-09-20T08:05+03"},
+              "arrival"   : { "airport": "FRA", "time": "2019-09-20T13:40+02", "terminal": "Terminal 1"},
+              "class"     : "Economy",
+              "seat"      : "77K"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "QR68",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Airbus A380-800",
+              "departure" : { "airport": "FRA", "time": "2019-09-25T17:35+02", "terminal": "Terminal 1"},
+              "arrival"   : { "airport": "DOH", "time": "2019-09-26T00:35+03"},
+              "class"     : "Economy",
+              "seat"      : "77K"
+            },
+            {
+              "flightNum" : "QR928",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DOH", "time": "2019-09-26T07:25+03"},
+              "arrival"   : { "airport": "MNL", "time": "2019-09-26T22:00+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "44A"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
@@ -957,6 +1006,12 @@
       "lon"  : 123.2991,
       "name" : "Sibulan Airport",
       "city" : "Dumaguete"
+    },
+    "DOH": {
+      "lat"  :  25.2731,
+      "lon"  :  51.6081,
+      "name" : "Hamad International Airport",
+      "city" : "Doha"
     }
   }
 }
