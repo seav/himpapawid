@@ -866,6 +866,55 @@
           ]
         }
       ]
+    },
+    {
+      "title": "WikidataCon 2019",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "QR929",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "MNL", "time": "2019-10-23T23:40+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "DOH", "time": "2019-10-24T04:20+03"},
+              "class"     : "Economy",
+              "seat"      : "14A"
+            },
+            {
+              "flightNum" : "QR81",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DOH", "time": "2019-10-24T07:45+03"},
+              "arrival"   : { "airport": "TXL", "time": "2019-10-24T12:55+02"},
+              "class"     : "Economy",
+              "seat"      : "50A"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "QR78",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "TXL", "time": "2019-10-28T22:00+01"},
+              "arrival"   : { "airport": "DOH", "time": "2019-10-29T05:45+03"},
+              "class"     : "Economy",
+              "seat"      : "51K"
+            },
+            {
+              "flightNum" : "QR928",
+              "airline"   : "Qatar Airways",
+              "aircraft"  : "Boeing 777-300ER",
+              "departure" : { "airport": "DOH", "time": "2019-10-29T08:05+03"},
+              "arrival"   : { "airport": "MNL", "time": "2019-10-29T21:40+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "39K"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
