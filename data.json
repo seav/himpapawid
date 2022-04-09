@@ -915,6 +915,36 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Magic Engineering Team-Building",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "5J911",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
+              "departure" : { "airport": "MNL", "time": "2022-04-04T11:20+08"},
+              "arrival"   : { "airport": "MPH", "time": "2022-04-04T12:20+08"},
+              "class"     : "Economy",
+              "seat"      : "24F"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "5J904",
+              "airline"   : "Cebu Pacific",
+              "aircraft"  : "Airbus A320",
+              "departure" : { "airport": "MPH", "time": "2022-04-11T14:55+08"},
+              "arrival"   : { "airport": "MNL", "time": "2022-04-11T16:05+08"},
+              "class"     : "Economy"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
