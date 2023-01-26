@@ -925,7 +925,7 @@
               "flightNum" : "5J911",
               "airline"   : "Cebu Pacific",
               "aircraft"  : "Airbus A320",
-              "departure" : { "airport": "MNL", "time": "2022-04-04T11:20+08"},
+              "departure" : { "airport": "MNL", "time": "2022-04-04T11:20+08", "terminal": "Terminal 3"},
               "arrival"   : { "airport": "MPH", "time": "2022-04-04T12:20+08"},
               "class"     : "Economy",
               "seat"      : "24F"
@@ -939,8 +939,41 @@
               "airline"   : "Cebu Pacific",
               "aircraft"  : "Airbus A320",
               "departure" : { "airport": "MPH", "time": "2022-04-11T14:55+08"},
-              "arrival"   : { "airport": "MNL", "time": "2022-04-11T16:05+08"},
+              "arrival"   : { "airport": "MNL", "time": "2022-04-11T16:05+08", "terminal": "Terminal 3"},
               "class"     : "Economy"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Singapore Family Vacation",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "Z2825",
+              "airline"   : "Philippines AirAsia",
+              "aircraft"  : "Airbus A320-200",
+              "departure" : { "airport": "MNL", "time": "2022-09-16T09:05+08", "terminal": "Terminal 3"},
+              "arrival"   : { "airport": "SIN", "time": "2022-09-16T12:30+08", "terminal": "Terminal 4"},
+              "class"     : "Economy",
+              "seat"      : "4C",
+              "notes"     : "Was originally assigned a seat at Row 2 but had to move because Row 1 was under maintenance."
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "Z2826",
+              "airline"   : "Philippine AirAsia",
+              "aircraft"  : "Airbus A320-200",
+              "departure" : { "airport": "SIN", "time": "2022-09-19T13:15+08", "terminal": "Terminal 4"},
+              "arrival"   : { "airport": "MNL", "time": "2022-09-19T17:05+08", "terminal": "Terminal 3"},
+              "class"     : "Economy",
+              "seat"      : "2D",
+              "notes"     : "Was originally assigned seat 1C but had to move because Row 1 was under maintenance."
             }
           ]
         }
@@ -1091,6 +1124,12 @@
       "lon"  :  51.6081,
       "name" : "Hamad International Airport",
       "city" : "Doha"
+    },
+    "SIN": {
+      "lat"  :   1.3592,
+      "lon"  : 103.9894,
+      "name" : "Singapore Changi Airport",
+      "city" : "Singapore"
     }
   }
 }
