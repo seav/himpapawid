@@ -1007,6 +1007,35 @@
           ] 
         }
       ]
+    },
+    {
+      "title": "Wikimania 2023",
+      "journeys": [
+        {
+          "flights": [
+            {
+              "flightNum" : "TR397",
+              "airline"   : "Scoot",
+              "departure" : { "airport": "MNL", "time": "2023-08-14T06:30+08", "terminal": "Terminal 3" },
+              "arrival"   : { "airport": "SIN", "time": "2023-08-14T10:30+08", "terminal": "Terminal 1" },
+              "class"     : "Economy",
+              "seat"      : "27A"
+            }
+          ]
+        },
+        {
+          "flights": [
+            {
+              "flightNum" : "TR396",
+              "airline"   : "Scoot",
+              "departure" : { "airport": "SIN", "time": "2023-08-22T01:50+08", "terminal": "Terminal 1" },
+              "arrival"   : { "airport": "MNL", "time": "2023-08-22T05:50+08", "terminal": "Terminal 3" },
+              "class"     : "Economy",
+              "seat"      : "27F"
+            }
+          ]
+        }
+      ]
     }
   ],
   "airports" : {
