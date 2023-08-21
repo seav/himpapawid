@@ -1,0 +1,151 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+}
+
+#map {
+  height: 100%;
+  background: #333 !important;
+}
+
+#map .leaflet-control-attribution {
+  background: rgba(0,0,0,0.4);
+  padding: 4px 10px;
+  color: #CCC;
+}
+#map .leaflet-control-attribution a {
+  color: #FF8;
+}
+
+#map .endpoint {
+  margin-top: -8px !important;
+  margin-left: -8px !important;
+  width: 16px !important;
+  height: 16px !important;
+  border-radius: 8px;
+  background: #FF8;
+  z-index: 130 !important;
+}
+
+#map .midpoint {
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 5px;
+  background: #FC8;
+  z-index: 120 !important;
+}
+
+#map .unhighlighted {
+  margin-top: -5px !important;
+  margin-left: -5px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 5px;
+  background: #aaa;
+  opacity: 0.6;
+  z-index: 110 !important;
+}
+
+.leaflet-marker-icon {
+  transition: 200ms;
+}
+
+path {
+  transition: 200ms;
+}
+
+#pane {
+  z-index: 10000;
+  position: absolute;
+  top: 0; right: 0;
+  width: 280px;
+  height: 100%;
+  padding: 20px;
+  color: #fff;
+  background: rgba(0,0,0,0.8);
+  overflow: auto;
+  font-size: 14px;
+}
+
+#branding {
+  z-index: 10100;
+  position: fixed;
+  margin: -20px -20px 10px;
+  padding: 0 20px;
+  width: 280px;
+  height: 36px;
+  line-height: 36px;
+  font-size: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  background: #444;
+  color: #ff8;
+}
+
+#pane h1 {
+  margin: 36px 0 8px;
+  padding: 0;
+  font-size: 20px;
+  color: #ffa080;
+  font-style: italic;
+}
+
+#trips-master {
+  margin: 0;
+  padding: 0 0 20px;
+}
+
+#trips-master .year {
+  float: left;
+  width: 60px;
+  padding: 8px 0px;
+  border-top: 1px solid #444;
+  font-weight: bold;
+  color: #888;
+}
+
+#trips-master .trip {
+  position: relative;
+  margin-left: 60px;
+  padding: 8px 0px;
+  border-top: 1px solid #444;
+  font-weight: bold;
+  color: #FF8;
+  transition: 200ms;
+}
+#trips-master .trip:hover {
+  color: #fa0;
+  cursor: pointer;
+}
+
+#trips-master .journeys {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+#trips-master .journey {
+  list-style: none;
+  margin: 0;
+  padding: 4px 20px 0;
+  color: #fff;
+}
+
+#trips-master .journey:before {
+  position: absolute;
+  left: 0;
+  content: "✈";
+  color: rgb(255,160,128);
+}
+
+#trips-master .journey-via {
+  display: block;
+  font-size: 10px;
+  font-style: italic;
+  text-transform: uppercase;
+  color: #888;
+}
