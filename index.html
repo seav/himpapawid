@@ -252,62 +252,46 @@ function processData() {
 
     rawTripDatum = data.trips[tripIdx];
     tripDatum = {
-      title    : rawTripDatum.title,
-      journeys : [],
-      airports : {},
-      legs     : {},
+      title     : rawTripDatum.title,
+      itinerary : [],
+      airports  : {},
+      legs      : {},
+      year      : rawTripDatum.itinerary[0][0].nodes[0].etd.substr(0, 4),
     };
     Trips.push(tripDatum);
 
-    for (journeyIdx = 0; journeyIdx < rawTripDatum.journeys.length; journeyIdx++) {
+    for (journeyIdx = 0; journeyIdx < rawTripDatum.itinerary.length; journeyIdx++) {
 
-      rawJourneyDatum = rawTripDatum.journeys[journeyIdx];
+      rawJourneyDatum = rawTripDatum.itinerary[journeyIdx];
       journeyDatum = {
         airports: [],
       };
-      tripDatum.journeys.push(journeyDatum);
+      tripDatum.itinerary.push(journeyDatum);
 
-      rawFlights = rawJourneyDatum.flights;
-      for (flightIdx = 0; flightIdx < rawFlights.length; flightIdx++) {
+      for (flightIdx = 0; flightIdx < rawJourneyDatum.length; flightIdx++) {
 
-        rawFlightDatum = rawFlights[flightIdx];
+        rawFlightDatum = rawJourneyDatum[flightIdx];
 
-        if (flightIdx == 0) {
-          if (journeyIdx == 0) {
-            tripDatum.year = rawFlightDatum.departure.time.substr(0, 4);
-          }
-          journeyDatum.airports.push(rawFlightDatum.departure.airport);
-        }
-        journeyDatum.airports.push(rawFlightDatum.arrival.airport);
+        journeyDatum.airports.push(...rawFlightDatum.nodes.map(n => n.airport));
 
-        nodes = [rawFlightDatum.departure.airport];
-        if (rawFlightDatum.stops) {
-          for (stopIdx = 0; stopIdx < rawFlightDatum.stops.length; stopIdx++) {
-            nodes.push(rawFlightDatum.stops[stopIdx].airport);
-          }
-        }
-        nodes.push(rawFlightDatum.arrival.airport);
+        nodes = rawFlightDatum.nodes.map(n => n.airport)
 
         // Add airports and mark some airports as endpoints
         for (nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
 
           isEndpoint = (
             (flightIdx == 0 && nodeIdx == 0) ||
-            (flightIdx == rawFlights.length - 1 && nodeIdx == nodes.length - 1)
+            (flightIdx == rawJourneyDatum.length - 1 && nodeIdx == nodes.length - 1)
           );
 
           if (!Airports[nodes[nodeIdx]]) {
-            Airports[nodes[nodeIdx]] = {
-              isEndpoint: isEndpoint,
-            };
+            Airports[nodes[nodeIdx]] = { isEndpoint };
           } else {
             if (isEndpoint) Airports[nodes[nodeIdx]].isEndpoint = true;
           }
 
           if (!tripDatum.airports[nodes[nodeIdx]]) {
-            tripDatum.airports[nodes[nodeIdx]] = {
-              isEndpoint: isEndpoint,
-            };
+            tripDatum.airports[nodes[nodeIdx]] = { isEndpoint };
           } else {
             if (isEndpoint) tripDatum.airports[nodes[nodeIdx]].isEndpoint = true;
           }
@@ -434,10 +418,10 @@ function listTrips() {
       journeysOL = document.createElement('ol');
       journeysOL.className = 'journeys';
       tripDD.appendChild(journeysOL)
-      for (journeyIdx = 0; journeyIdx < Trips[tripIdx].journeys.length; journeyIdx++) {
+      for (journeyIdx = 0; journeyIdx < Trips[tripIdx].itinerary.length; journeyIdx++) {
         journeyLI = document.createElement('li');
         journeyLI.className = 'journey';
-        journeyLI.innerHTML = Trips[tripIdx].journeys[journeyIdx].title;
+        journeyLI.innerHTML = Trips[tripIdx].itinerary[journeyIdx].title;
         journeysOL.appendChild(journeyLI);
       }
       TripsDL.appendChild(tripDD);
