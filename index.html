@@ -11,24 +11,33 @@
 </head>
 <body>
 <div id="map"></div>
-<div id="pane"></div>
+<div id="pane">
+  <div id="branding">Flight Record</div>
+  <h1>Trips</h1>
+</div>
 <script>
 'use strict';
 
 // App parameters
-var LONG_LIMIT             = -120;
-var INIT_LAT               = 14.5;
-var INIT_LON               = 121;
-var INIT_MARGIN            = 20;
-var INIT_ZOOM              = 4;
-var TILE_LAYER_URL         = 'http://fr.vaes9.com/tiles/{z}/{x}/{y}.png';
-var TILE_LAYER_ATTRIBUTION = 'Base map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
-                             'under <a href="http://creativecommons.org/licenses/by/3.0">CC-BY 3.0</a>. ' +
-                             'Base map data by <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>.';
-var TILE_LAYER_MAX_ZOOM    = 6;
-var DATA_URL               = 'data.json';
-var NORMAL_LEG_COLOR       = '#ffa080';
-var NORMAL_LEG_OPACITY     = 0.6;
+const LONG_CUTOFF            = -120;
+const INIT_LAT               = 14.5;
+const INIT_LON               = 121;
+const INIT_MARGIN            = 20;
+const INIT_ZOOM              = 4;
+const TILE_LAYER_URL         = 'http://fr.vaes9.com/tiles/{z}/{x}/{y}.png';
+const TILE_LAYER_ATTRIBUTION = 'Base map tiles by <a href="http://stamen.com">Stamen Design</a>, ' +
+                               'under <a href="http://creativecommons.org/licenses/by/3.0">CC-BY 3.0</a>. ' +
+                               'Base map data by <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>.';
+const TILE_LAYER_MAX_ZOOM    = 6;
+const DATA_URL               = 'data.json';
+const DEFAULT_LEG_COLOR      = '#ffa080';
+const DEFAULT_LEG_OPACITY    = 0.6;
+const FOCUSED_LEG_OPACITY    = 1;
+const BASE_LEG_WEIGHT        = 1;
+const FOCUSED_LEG_WEIGHT     = BASE_LEG_WEIGHT + 3;
+const FADED_LEG_COLOR        = '#888';
+const FADED_LEG_OPACITY      = 0.4;
+const ARC_DENSITY            = 30;
 
 var Map;
 var Trips = [], Airports = {}, Legs = {};
@@ -39,8 +48,6 @@ var TripsDL, AirlinesDL, AirportsTable;
 function init() {
 
   PaneBox = document.getElementById('pane');
-
-  var xhrObject = new XMLHttpRequest();
 
   // Initialize the map and add the tile layer
   Map = new L.Map('map', {
@@ -65,65 +72,45 @@ function init() {
     }
   );
 
-  // Load the overlay data
-  xhrObject.onreadystatechange = processData;
-  xhrObject.open('GET', DATA_URL, true);
-  xhrObject.overrideMimeType('text/plain');
-  xhrObject.send(null);
+  fetch(DATA_URL).then(response => response.json().then(processData));
 
   document.getElementById('map').style.height = window.innerHeight + 'px';
   document.getElementById('pane').style.height = (window.innerHeight - 40) + 'px';
 }
 window.addEventListener('load', init);
 
-function processData() {
+function processData(rawData) {
 
-   var i, tripIdx, journeyIdx, flightIdx, nodeIdx, stopIdx;
-   var data, journeys, flights, flight, nodes, isEndpoint, title;
-   var rawTripDatum, tripDatum, rawJourneyDatum, journeyDatum, rawFlights, rawFlightDatum;
-   var legsInfo = {};
-   var startCode, endCode, startEndCode;
-   var startCoord, endCoord;
+  for (const rawTrip of rawData.trips) {
 
-  if (this.readyState != this.DONE || this.status != 200) return;
-
-  data = JSON.parse(this.responseText);
-
-  // Process the data
-  for (tripIdx = 0; tripIdx < data.trips.length; tripIdx++) {
-
-    rawTripDatum = data.trips[tripIdx];
-    tripDatum = {
-      title     : rawTripDatum.title,
+    const trip = {
+      title     : rawTrip.title,
       itinerary : [],
       airports  : {},
       legs      : {},
-      year      : rawTripDatum.itinerary[0][0].nodes[0].etd.substr(0, 4),
+      year      : rawTrip.itinerary[0][0].nodes[0].etd.substr(0, 4),
     };
-    Trips.push(tripDatum);
+    Trips.push(trip);
 
-    for (journeyIdx = 0; journeyIdx < rawTripDatum.itinerary.length; journeyIdx++) {
+    for (const rawJourney of rawTrip.itinerary) {
 
-      rawJourneyDatum = rawTripDatum.itinerary[journeyIdx];
-      journeyDatum = {
-        airports: [],
-      };
-      tripDatum.itinerary.push(journeyDatum);
+      const journeyDatum = { airports: [] };
+      trip.itinerary.push(journeyDatum);
 
-      for (flightIdx = 0; flightIdx < rawJourneyDatum.length; flightIdx++) {
+      for (let flightIdx = 0; flightIdx < rawJourney.length; flightIdx++) {
 
-        rawFlightDatum = rawJourneyDatum[flightIdx];
+        const rawFlightDatum = rawJourney[flightIdx];
 
         journeyDatum.airports.push(...rawFlightDatum.nodes.map(n => n.airport));
 
-        nodes = rawFlightDatum.nodes.map(n => n.airport)
+        const nodes = rawFlightDatum.nodes.map(n => n.airport)
 
         // Add airports and mark some airports as endpoints
-        for (nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
+        for (let nodeIdx = 0; nodeIdx < nodes.length; nodeIdx++) {
 
-          isEndpoint = (
+          const isEndpoint = (
             (flightIdx == 0 && nodeIdx == 0) ||
-            (flightIdx == rawJourneyDatum.length - 1 && nodeIdx == nodes.length - 1)
+            (flightIdx == rawJourney.length - 1 && nodeIdx == nodes.length - 1)
           );
 
           if (!Airports[nodes[nodeIdx]]) {
@@ -132,63 +119,54 @@ function processData() {
             if (isEndpoint) Airports[nodes[nodeIdx]].isEndpoint = true;
           }
 
-          if (!tripDatum.airports[nodes[nodeIdx]]) {
-            tripDatum.airports[nodes[nodeIdx]] = { isEndpoint };
+          if (!trip.airports[nodes[nodeIdx]]) {
+            trip.airports[nodes[nodeIdx]] = { isEndpoint };
           } else {
-            if (isEndpoint) tripDatum.airports[nodes[nodeIdx]].isEndpoint = true;
+            if (isEndpoint) trip.airports[nodes[nodeIdx]].isEndpoint = true;
           }
         }
 
         // Generate leg arc info
-        for (nodeIdx = 0; nodeIdx < nodes.length - 1; nodeIdx++) {
+        for (let nodeIdx = 0; nodeIdx < nodes.length - 1; nodeIdx++) {
 
-          if (nodes[nodeIdx] < nodes[nodeIdx + 1]) {
-            startCode = nodes[nodeIdx];
-            endCode   = nodes[nodeIdx + 1];
-          } else {
-            startCode = nodes[nodeIdx + 1];
-            endCode   = nodes[nodeIdx];
-          }
-          startEndCode = startCode + '-' + endCode;
+          const legNodes = [nodes[nodeIdx], nodes[nodeIdx + 1]].sort();
+          const legId = legNodes.join('-');
+          if (!(legId in Legs)) {
 
-          if (!Legs[startEndCode]) {
-
-            startCoord = new arc.Coord(data.airports[startCode].lon, data.airports[startCode].lat);
-            endCoord   = new arc.Coord(data.airports[endCode  ].lon, data.airports[endCode  ].lat);
-            var line   = new arc.GreatCircle(startCoord, endCoord).Arc(30);
+            const startCoord = new arc.Coord(rawData.airports[legNodes[0]].lon, rawData.airports[legNodes[0]].lat);
+            const endCoord   = new arc.Coord(rawData.airports[legNodes[1]].lon, rawData.airports[legNodes[1]].lat);
+            const line = new arc.GreatCircle(startCoord, endCoord).Arc(ARC_DENSITY);
 
             // Adjust coordinates for 180°
-            for (var l = 0; l < line.geometries.length; l++) {
-              for (var m = 0; m < line.geometries[l].coords.length; m++) {
-                if (line.geometries[l].coords[m][0] < LONG_LIMIT) {
-                  line.geometries[l].coords[m][0] += 360;
-                }
+            for (const geometry of line.geometries) {
+              for (const latLon of geometry.coords) {
+                if (latLon[0] < LONG_CUTOFF) latLon[0] += 360;
               }
             }
 
-            Legs[startEndCode] = {
+            Legs[legId] = {
               geojson: line.json(),
               tally: 1,
             };
 
           } else {
-            Legs[startEndCode].tally++;
+            Legs[legId].tally++;
           }
 
-          tripDatum.legs[startEndCode] = true;
+          trip.legs[legId] = true;
         }
       }
 
       // Generate title for the journey
-      title = data.airports[journeyDatum.airports[0]].city + ' to ' +
-        data.airports[journeyDatum.airports[journeyDatum.airports.length - 1]].city;
+      let title = rawData.airports[journeyDatum.airports[0]].city + ' to ' +
+        rawData.airports[journeyDatum.airports[journeyDatum.airports.length - 1]].city;
       if (journeyDatum.airports.length > 2) {
         title += ' <span class="journey-via">via ';
-        for (i = 1; i < journeyDatum.airports.length - 1; i++) {
+        for (let i = 1; i < journeyDatum.airports.length - 1; i++) {
           if (journeyDatum.airports.length > 3 && i == journeyDatum.airports.length - 2) {
             title += ' and ';
           }
-          title += data.airports[journeyDatum.airports[i]].city;
+          title += rawData.airports[journeyDatum.airports[i]].city;
           if (i < journeyDatum.airports.length - 3) {
             title += ', ';
           }
@@ -199,34 +177,32 @@ function processData() {
     }
   }
 
-  var legs = Object.keys(Legs);
-  for (i = 0; i < legs.length; i++) {
-    var layer = L.geoJson(Legs[legs[i]].geojson, {
+  for (const leg of Object.values(Legs)) {
+    const defaultStyle = {
+      stroke  : true,
+      color   : DEFAULT_LEG_COLOR,
+      opacity : DEFAULT_LEG_OPACITY,
+      weight  : leg.tally + BASE_LEG_WEIGHT - 1,
+    };
+    const layer = L.geoJson(leg.geojson, {
       clickable: false,
-      style: function() {
-        return {
-          stroke  : true,
-          color   : NORMAL_LEG_COLOR,
-          opacity : NORMAL_LEG_OPACITY,
-          weight  : Legs[legs[i]].tally + 2,
-        }
-      }
+      style: defaultStyle,
     }).addTo(Map);
-    Legs[legs[i]].layer = layer;
+    leg.defaultStyle = defaultStyle;
+    leg.layer = layer;
   }
 
-  var airports = Object.keys(Airports);
-  for (i = 0; i < airports.length; i++) {
-    var airportDatum = data.airports[airports[i]];
-    var iconObj = L.divIcon({
-      className: Airports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint',
+  for (const airportCode of Object.keys(Airports)) {
+    const rawAirport = rawData.airports[airportCode];
+    const icon = L.divIcon({
+      className: Airports[airportCode].isEndpoint ? 'endpoint' : 'midpoint',
     });
-    var marker = L.marker([airportDatum.lat, airportDatum.lon], {
-      icon: iconObj,
+    const marker = L.marker([rawAirport.lat, rawAirport.lon], {
+      icon,
       clickable: false,
       keyboard: false,
     }).addTo(Map);
-    Airports[airports[i]].marker = marker;
+    Airports[airportCode].marker = marker;
   }
 
   Trips.reverse();
@@ -235,110 +211,77 @@ function processData() {
 
 function listTrips() {
 
-  var tripIdx, journeyIdx;
-  var year = '';
-  var yearDT, tripDD, journeysOL, journeyLI;
+  if (TripsDL) return;
 
-  if (!TripsDL) {
+  let year;
+  TripsDL = document.createElement('dl');
+  TripsDL.id = 'trips-master';
 
-    TripsDL = document.createElement('dl');
-    TripsDL.id = 'trips-master';
-    for (tripIdx = 0; tripIdx < Trips.length; tripIdx++) {
+  for (const trip of Trips) {
 
-      if (year != Trips[tripIdx].year) {
-        year = Trips[tripIdx].year;
-        yearDT = document.createElement('dt');
-        yearDT.className = 'year';
-        yearDT.innerHTML = Trips[tripIdx].year;
-        TripsDL.appendChild(yearDT);
-      }
-
-      tripDD = document.createElement('dd');
-      tripDD.className = 'trip';
-      tripDD._tripIndex = tripIdx;
-      tripDD.innerHTML = Trips[tripIdx].title;
-      journeysOL = document.createElement('ol');
-      journeysOL.className = 'journeys';
-      tripDD.appendChild(journeysOL)
-      for (journeyIdx = 0; journeyIdx < Trips[tripIdx].itinerary.length; journeyIdx++) {
-        journeyLI = document.createElement('li');
-        journeyLI.className = 'journey';
-        journeyLI.innerHTML = Trips[tripIdx].itinerary[journeyIdx].title;
-        journeysOL.appendChild(journeyLI);
-      }
-      TripsDL.appendChild(tripDD);
-
-      var highlightTrip = function(e) {
-        var idx = e.currentTarget._tripIndex;
-        highlightMapLayers(Trips[idx].airports, Trips[idx].legs);
-      };
-      tripDD.addEventListener('mouseover', highlightTrip);
-      tripDD.addEventListener('mousedown', highlightTrip);
-      tripDD.addEventListener('mouseout', resetMapStyle);
+    if (year !== trip.year) {
+      year = trip.year;
+      const yearDT = document.createElement('dt');
+      yearDT.className = 'year';
+      yearDT.innerHTML = trip.year;
+      TripsDL.appendChild(yearDT);
     }
+
+    const tripDD = document.createElement('dd');
+    tripDD.className = 'trip';
+    tripDD.innerHTML = trip.title;
+    const journeysOL = document.createElement('ol');
+    journeysOL.className = 'journeys';
+    tripDD.appendChild(journeysOL)
+    for (const journey of trip.itinerary) {
+      const journeyLI = document.createElement('li');
+      journeyLI.className = 'journey';
+      journeyLI.innerHTML = journey.title;
+      journeysOL.appendChild(journeyLI);
+    }
+    TripsDL.appendChild(tripDD);
+
+    const highlightTrip = () => { highlightMapLayers(trip.airports, trip.legs) };
+    tripDD.addEventListener('mouseover', highlightTrip);
+    tripDD.addEventListener('mousedown', highlightTrip);
+    tripDD.addEventListener('mouseout', resetMapStyle);
   }
 
-  PaneBox.innerHTML = '<div id="branding">Flight Record</div><h1>Trips</h1>';
   PaneBox.appendChild(TripsDL);
 }
 
 function highlightMapLayers(highlightedAirports, highlightedLegs) {
 
-  var airports = Object.keys(Airports);
-  for (i = 0; i < airports.length; i++) {
-    var divIcon = Airports[airports[i]].marker._icon;
-    if (highlightedAirports[airports[i]]) {
-      var className = highlightedAirports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint';
-      divIcon.className = divIcon.className.replace('endpoint', className);
-      divIcon.className = divIcon.className.replace('midpoint', className);
-      divIcon.className = divIcon.className.replace('unhighlighted', className);
-    } else {
-      divIcon.className = divIcon.className.replace('endpoint', 'unhighlighted');
-      divIcon.className = divIcon.className.replace('midpoint', 'unhighlighted');
-    }
+  for (const airportCode of Object.keys(Airports)) {
+    const divIcon = Airports[airportCode].marker._icon;
+    divIcon.classList.remove('endpoint', 'midpoint', 'unhighlighted');
+    const newClass = airportCode in highlightedAirports
+      ? highlightedAirports[airportCode].isEndpoint ? 'endpoint' : 'midpoint'
+      : 'unhighlighted'
+    divIcon.classList.add(newClass);
   }
 
-  var legs = Object.keys(Legs);
-  var i, style;
-  for (var i = 0; i < legs.length; i++) {
-    if (highlightedLegs[legs[i]]) {
-      style = {
-        stroke  : true,
-        color   : NORMAL_LEG_COLOR,
-        opacity : 1,
-        weight  : 3,
-      };
-    } else {
-      style = {
-        stroke  : true,
-        color   : '#888',
-        opacity : 0.4,
-        weight  : Legs[legs[i]].tally + 2,
-      };
-    }
-    Legs[legs[i]].layer.setStyle(style);
+  for (const legId of Object.keys(Legs)) {
+    const isHighlighted = legId in highlightedLegs;
+    Legs[legId].layer.setStyle({
+      stroke  : true,
+      color   : isHighlighted ? DEFAULT_LEG_COLOR : FADED_LEG_COLOR,
+      opacity : isHighlighted ? FOCUSED_LEG_OPACITY : FADED_LEG_OPACITY,
+      weight  : isHighlighted ? FOCUSED_LEG_WEIGHT : Legs[legId].tally + BASE_LEG_WEIGHT,
+    });
   }
 }
 
 function resetMapStyle() {
 
-  var airports = Object.keys(Airports);
-  for (i = 0; i < airports.length; i++) {
-    var divIcon = Airports[airports[i]].marker._icon;
-    var className = Airports[airports[i]].isEndpoint ? 'endpoint' : 'midpoint';
-    divIcon.className = divIcon.className.replace('endpoint', className);
-    divIcon.className = divIcon.className.replace('midpoint', className);
-    divIcon.className = divIcon.className.replace('unhighlighted', className);
+  for (const airport of Object.values(Airports)) {
+    const divIcon = airport.marker._icon;
+    divIcon.classList.remove('endpoint', 'midpoint', 'unhighlighted');
+    divIcon.classList.add(airport.isEndpoint ? 'endpoint' : 'midpoint');
   }
 
-  var legs = Object.keys(Legs);
-  for (var i = 0; i < legs.length; i++) {
-    Legs[legs[i]].layer.setStyle({
-      stroke  : true,
-      color   : NORMAL_LEG_COLOR,
-      opacity : NORMAL_LEG_OPACITY,
-      weight  : Legs[legs[i]].tally + 2,
-    });
+  for (const leg of Object.values(Legs)) {
+    leg.layer.setStyle(leg.defaultStyle);
   }
 }
 
