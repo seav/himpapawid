@@ -133,19 +133,20 @@ function processData(rawData) {
           const legId = legNodes.join('-');
           if (!(legId in Legs)) {
 
-            const startCoord = new arc.Coord(rawData.airports[legNodes[0]].lon, rawData.airports[legNodes[0]].lat);
-            const endCoord   = new arc.Coord(rawData.airports[legNodes[1]].lon, rawData.airports[legNodes[1]].lat);
-            const line = new arc.GreatCircle(startCoord, endCoord).Arc(ARC_DENSITY);
+            const startCoord = new Coord(rawData.airports[legNodes[0]].lon, rawData.airports[legNodes[0]].lat);
+            const endCoord   = new Coord(rawData.airports[legNodes[1]].lon, rawData.airports[legNodes[1]].lat);
+            const geoJson = new Arc(startCoord, endCoord).toGeoJson();
 
             // Adjust coordinates for 180°
-            for (const geometry of line.geometries) {
-              for (const latLon of geometry.coords) {
-                if (latLon[0] < LONG_CUTOFF) latLon[0] += 360;
+            const geometry = geoJson.geometry;
+            for (const lineString of (geometry.type === 'LineString' ? [geometry.coordinates] : geometry.coordinates)) {
+              for (const lonLat of lineString) {
+                if (lonLat[0] < LONG_CUTOFF) lonLat[0] += 360;
               }
             }
 
             Legs[legId] = {
-              geojson: line.json(),
+              geoJson,
               tally: 1,
             };
 
@@ -182,9 +183,9 @@ function processData(rawData) {
       stroke  : true,
       color   : DEFAULT_LEG_COLOR,
       opacity : DEFAULT_LEG_OPACITY,
-      weight  : leg.tally + BASE_LEG_WEIGHT - 1,
+      weight  : leg.tally + BASE_LEG_WEIGHT,
     };
-    const layer = L.geoJson(leg.geojson, {
+    const layer = L.geoJson(leg.geoJson, {
       clickable: false,
       style: defaultStyle,
     }).addTo(Map);
