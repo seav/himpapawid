@@ -161,7 +161,6 @@ function processData(rawData) {
       }
 
       // Generate title for the journey
-      console.log(journeyDatum.airports);
       let title = rawData.airports[journeyDatum.airports[0]].city + ' to ' +
         rawData.airports[journeyDatum.airports[journeyDatum.airports.length - 1]].city;
       if (journeyDatum.airports.length > 2) {
@@ -266,13 +265,23 @@ function highlightMapLayers(highlightedAirports, highlightedLegs) {
   }
 
   for (const legId of Object.keys(Legs)) {
+    const legLayer = Legs[legId].layer;
     const isHighlighted = legId in highlightedLegs;
-    Legs[legId].layer.setStyle({
+
+    legLayer.setStyle({
       stroke  : true,
       color   : isHighlighted ? DEFAULT_LEG_COLOR : FADED_LEG_COLOR,
       opacity : isHighlighted ? FOCUSED_LEG_OPACITY : FADED_LEG_OPACITY,
       weight  : isHighlighted ? FOCUSED_LEG_WEIGHT : Legs[legId].tally + BASE_LEG_WEIGHT,
     });
+
+    // Ensure that highlighted leg is shown on top
+    if (isHighlighted) {
+      let legPath = legLayer._layers[Object.keys(legLayer._layers)[0]]._path;
+      let parent = legPath.parentNode;
+      parent.removeChild(legPath);
+      parent.appendChild(legPath);
+    }
   }
 }
 
