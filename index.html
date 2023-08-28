@@ -101,7 +101,9 @@ function processData(rawData) {
 
         const rawFlightDatum = rawJourney[flightIdx];
 
-        journeyDatum.airports.push(...rawFlightDatum.nodes.map(n => n.airport));
+        const tempNodes = [...rawFlightDatum.nodes];
+        if (tempNodes[0].airport === journeyDatum.airports[journeyDatum.airports.length - 1]) tempNodes.shift();
+        journeyDatum.airports.push(...tempNodes.map(n => n.airport));
 
         const nodes = rawFlightDatum.nodes.map(n => n.airport)
 
@@ -159,12 +161,13 @@ function processData(rawData) {
       }
 
       // Generate title for the journey
+      console.log(journeyDatum.airports);
       let title = rawData.airports[journeyDatum.airports[0]].city + ' to ' +
         rawData.airports[journeyDatum.airports[journeyDatum.airports.length - 1]].city;
       if (journeyDatum.airports.length > 2) {
         title += ' <span class="journey-via">via ';
         for (let i = 1; i < journeyDatum.airports.length - 1; i++) {
-          if (journeyDatum.airports.length > 3 && i == journeyDatum.airports.length - 2) {
+          if (journeyDatum.airports.length > 3 && i === journeyDatum.airports.length - 2) {
             title += ' and ';
           }
           title += rawData.airports[journeyDatum.airports[i]].city;
