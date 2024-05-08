@@ -914,7 +914,7 @@
         [
           {
             "flightNum": "Z2826",
-            "airline": "Philippine AirAsia",
+            "airline": "Philippines AirAsia",
             "aircraft": "Airbus A320-200",
             "seat": "2D",
             "notes": "Was originally assigned seat 1C but had to move because Row 1 was under maintenance.",
@@ -975,6 +975,35 @@
             "nodes": [
               { "airport": "SIN", "etd": "2023-08-22T01:50+08" },
               { "airport": "MNL", "eta": "2023-08-22T05:50+08" }
+            ]
+          }
+        ]
+      ]
+    },
+    {
+      "title": "ESEAP Conference 2024",
+      "itinerary": [
+        [
+          {
+            "flightNum": "Z2503",
+            "airline": "Philippines AirAsia",
+            "aircraft": "Airbus A320-216",
+            "seat": "8A",
+            "notes": "ETD and ETA were originally 23:10 and 01:20 but the aircraft was delayed by 1:50 hours due to its flight from NRT.",
+            "nodes": [
+              { "airport": "MNL", "etd": "2024-05-09T01:00+08", "terminal": "Terminal 3" },
+              { "airport": "BKI", "eta": "2024-05-09T02:55+08", "terminal": "Terminal 1" }
+            ]
+          }
+        ],
+        [
+          {
+            "flightNum": "Z2504",
+            "airline": "Philippines AirAsia",
+            "seat": "24F",
+            "nodes": [
+              { "airport": "BKI", "eta": "2024-05-14T01:45+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "etd": "2024-05-14T03:55+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -1137,6 +1166,12 @@
       "lon"  : 123.6800,
       "name" : "Bicol International Airport",
       "city" : "Legazpi"
+    },
+    "BKI": {
+      "lat"  :   5.9312,
+      "lon"  : 116.0489,
+      "name" : "Kota Kinabalu International Airport",
+      "city" : "Kota Kinabalu"
     }
   }
 }
