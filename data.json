@@ -9,8 +9,8 @@
             "airline": "Cathay Pacific",
             "notes": "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data.",
             "nodes": [
-              { "airport": "MNL", "etd": "1999-05-05T10:50+08" },
-              { "airport": "HKG", "eta": "1999-05-05T13:15+08" }
+              { "airport": "MNL", "etd": "1999-05-05T10:50+08", "terminal": "Terminal 1" },
+              { "airport": "HKG", "eta": "1999-05-05T13:15+08", "terminal": "Terminal 1" }
             ]
           },
           {
@@ -18,8 +18,8 @@
             "airline": "Cathay Pacific",
             "notes": "Flight number, date, STD, and STA are guessed from 2016 flight data.",
             "nodes": [
-              { "airport": "HKG", "etd": "1999-05-05T16:20+08" },
-              { "airport": "YVR", "eta": "1999-05-05T13:15-07" }
+              { "airport": "HKG", "etd": "1999-05-05T16:20+08", "terminal": "Terminal 1" },
+              { "airport": "YVR", "eta": "1999-05-05T13:15-07", "terminal": "Main Terminal" }
             ]
           }
         ],
@@ -29,8 +29,8 @@
             "airline": "Cathay Pacific",
             "notes": "Flight number, date, STD, and STA are guessed from 2016 flight data.",
             "nodes": [
-              { "airport": "YVR", "etd": "1999-05-27T14:45-07" },
-              { "airport": "HKG", "eta": "1999-05-28T19:15+08" }
+              { "airport": "YVR", "etd": "1999-05-27T14:45-07", "terminal": "Main Terminal" },
+              { "airport": "HKG", "eta": "1999-05-28T19:15+08", "terminal": "Terminal 1" }
             ]
           },
           {
@@ -38,8 +38,8 @@
             "airline": "Cathay Pacific",
             "notes": "Flight number and date are taken from passport; STD and STA are taken from 2016 flight data.",
             "nodes": [
-              { "airport": "HKG", "etd": "1999-05-28T22:05+08" },
-              { "airport": "MNL", "eta": "1999-05-29T00:15+08" }
+              { "airport": "HKG", "etd": "1999-05-28T22:05+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "1999-05-29T00:15+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -54,8 +54,8 @@
             "airline": "Japan Airlines",
             "aircraft": "Boeing 747",
             "nodes": [
-              { "airport": "MNL", "etd": "2006-04-04T09:10+08" },
-              { "airport": "NRT", "eta": "2006-04-04T14:25+09" }
+              { "airport": "MNL", "etd": "2006-04-04T09:10+08", "terminal": "Terminal 1" },
+              { "airport": "NRT", "eta": "2006-04-04T14:25+09", "terminal": "Terminal 2" }
             ]
           }
         ],
@@ -66,8 +66,8 @@
             "aircraft": "Boeing 747",
             "seat": "56A",
             "nodes": [
-              { "airport": "NRT", "etd": "2006-04-28T09:40+09" },
-              { "airport": "MNL", "eta": "2006-04-28T13:05+08" }
+              { "airport": "NRT", "etd": "2006-04-28T09:40+09", "terminal": "Terminal 2" },
+              { "airport": "MNL", "eta": "2006-04-28T13:05+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -82,8 +82,8 @@
             "airline": "Japan Airlines",
             "aircraft": "Boeing 747",
             "nodes": [
-              { "airport": "MNL", "etd": "2006-11-20T09:40+08" },
-              { "airport": "NRT", "eta": "2006-11-20T14:40+09" }
+              { "airport": "MNL", "etd": "2006-11-20T09:40+08", "terminal": "Terminal 1" },
+              { "airport": "NRT", "eta": "2006-11-20T14:40+09", "terminal": "Terminal 2" }
             ]
           }
         ],
@@ -93,8 +93,8 @@
             "airline": "Japan Airlines",
             "aircraft": "Boeing 747",
             "nodes": [
-              { "airport": "NRT", "etd": "2006-12-15T09:35+09" },
-              { "airport": "MNL", "eta": "2006-12-15T13:25+08" }
+              { "airport": "NRT", "etd": "2006-12-15T09:35+09", "terminal": "Terminal 2" },
+              { "airport": "MNL", "eta": "2006-12-15T13:25+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -109,7 +109,7 @@
             "airline": "SEAIR",
             "aircraft": "Fairchild-Dornier 328",
             "nodes": [
-              { "airport": "MNL", "etd": "2008-01-11T08:00+08" },
+              { "airport": "MNL", "etd": "2008-01-11T08:00+08", "terminal": "Terminal 4" },
               { "airport": "MPH", "eta": "2008-01-11T08:35+08" }
             ]
           }
@@ -121,7 +121,7 @@
             "aircraft": "Fairchild-Dornier 328",
             "nodes": [
               { "airport": "MPH", "etd": "2008-01-13T16:35+08" },
-              { "airport": "MNL", "eta": "2008-01-13T17:10+08" }
+              { "airport": "MNL", "eta": "2008-01-13T17:10+08", "terminal": "Terminal 4" }
             ]
           }
         ]
@@ -136,8 +136,8 @@
             "airline": "Cebu Pacific",
             "notes": "Flight number is taken from passport; STD and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "MNL", "etd": "2011-03-03T05:40+08" },
-              { "airport": "HKG", "eta": "2011-03-03T07:40+08" }
+              { "airport": "MNL", "etd": "2011-03-03T05:40+08", "terminal": "Terminal 3" },
+              { "airport": "HKG", "eta": "2011-03-03T07:40+08", "terminal": "Terminal 1" }
             ]
           }
         ],
@@ -147,8 +147,8 @@
             "airline": "Cebu Pacific",
             "notes": "Flight number is taken from passport; STD and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "HKG", "etd": "2011-03-06T10:40+08" },
-              { "airport": "MNL", "eta": "2011-03-06T12:40+08" }
+              { "airport": "HKG", "etd": "2011-03-06T10:40+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "2011-03-06T12:40+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -162,7 +162,7 @@
             "flightNum": "PR732",
             "airline": "Philippine Airlines",
             "nodes": [
-              { "airport": "MNL", "etd": "2011-08-02T19:30+08" },
+              { "airport": "MNL", "etd": "2011-08-02T19:30+08", "terminal": "Terminal 2" },
               { "airport": "BKK", "eta": "2011-08-02T21:50+07" }
             ]
           },
@@ -171,7 +171,7 @@
             "airline": "El Al",
             "nodes": [
               { "airport": "BKK", "etd": "2011-08-03T00:10+07" },
-              { "airport": "TLV", "eta": "2011-08-03T07:00+03" }
+              { "airport": "TLV", "eta": "2011-08-03T07:00+03", "terminal": "Terminal 3" }
             ]
           }
         ],
@@ -180,16 +180,16 @@
             "flightNum": "LY75",
             "airline": "El Al",
             "nodes": [
-              { "airport": "TLV", "etd": "2011-08-08T22:00+03" },
-              { "airport": "HKG", "eta": "2011-08-09T13:50+08" }
+              { "airport": "TLV", "etd": "2011-08-08T22:00+03", "terminal": "Terminal 3" },
+              { "airport": "HKG", "eta": "2011-08-09T13:50+08", "terminal": "Terminal 1" }
             ]
           },
           {
             "flightNum": "CX903",
             "airline": "Cathay Pacific",
             "nodes": [
-              { "airport": "HKG", "etd": "2011-08-09T16:35+08" },
-              { "airport": "MNL", "eta": "2011-08-09T18:40+08" }
+              { "airport": "HKG", "etd": "2011-08-09T16:35+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "2011-08-09T18:40+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -250,8 +250,8 @@
             "airline": "Japan Airlines",
             "notes": "Flight number is taken from passport; STD and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "MNL", "etd": "2012-06-11T09:00+08" },
-              { "airport": "NRT", "eta": "2012-06-11T14:30+09" }
+              { "airport": "MNL", "etd": "2012-06-11T09:00+08", "terminal": "Terminal 1" },
+              { "airport": "NRT", "eta": "2012-06-11T14:30+09", "terminal": "Terminal 2" }
             ]
           }
         ],
@@ -261,8 +261,8 @@
             "airline": "Japan Airlines",
             "notes": "Flight number is taken from passport; STD and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "NRT", "etd": "2012-06-29T09:35+09" },
-              { "airport": "MNL", "eta": "2012-06-29T13:15+08" }
+              { "airport": "NRT", "etd": "2012-06-29T09:35+09", "terminal": "Terminal 2" },
+              { "airport": "MNL", "eta": "2012-06-29T13:15+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -277,8 +277,8 @@
             "airline": "Japan Airlines",
             "notes": "Flight number is taken from passport; STD and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "MNL", "etd": "2012-12-03T09:20+08" },
-              { "airport": "NRT", "eta": "2012-12-03T14:30+09" }
+              { "airport": "MNL", "etd": "2012-12-03T09:20+08", "terminal": "Terminal 1" },
+              { "airport": "NRT", "eta": "2012-12-03T14:30+09", "terminal": "Terminal 2" }
             ]
           }
         ],
@@ -290,8 +290,8 @@
             "seat": "62E",
             "notes": "Aircraft, STD, and STA are taken from Flight Stats.",
             "nodes": [
-              { "airport": "NRT", "etd": "2012-12-14T18:00+09" },
-              { "airport": "MNL", "eta": "2012-12-14T22:05+08" }
+              { "airport": "NRT", "etd": "2012-12-14T18:00+09", "terminal": "Terminal 2" },
+              { "airport": "MNL", "eta": "2012-12-14T22:05+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -307,8 +307,8 @@
             "aircraft": "Airbus A320",
             "notes": "Aircraft is taken from Flight Stats.",
             "nodes": [
-              { "airport": "MNL", "etd": "2013-08-06T16:40+08" },
-              { "airport": "HKG", "eta": "2013-08-06T18:40+08" }
+              { "airport": "MNL", "etd": "2013-08-06T16:40+08", "terminal": "Terminal 3" },
+              { "airport": "HKG", "eta": "2013-08-06T18:40+08", "terminal": "Terminal 1" }
             ]
           }
         ],
@@ -319,8 +319,8 @@
             "aircraft": "Airbus A320",
             "notes": "Aircraft is taken from Flight Stats.",
             "nodes": [
-              { "airport": "HKG", "etd": "2013-08-12T19:30+08" },
-              { "airport": "MNL", "eta": "2013-08-12T21:30+08" }
+              { "airport": "HKG", "etd": "2013-08-12T19:30+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "2013-08-12T21:30+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -336,8 +336,8 @@
             "aircraft": "Boeing 777-300",
             "seat": "8B",
             "nodes": [
-              { "airport": "MNL", "etd": "2014-08-05T08:55+08" },
-              { "airport": "DXB", "eta": "2014-08-05T13:20+04" }
+              { "airport": "MNL", "etd": "2014-08-05T08:55+08", "terminal": "Terminal 1" },
+              { "airport": "DXB", "eta": "2014-08-05T13:20+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -346,8 +346,8 @@
             "aircraft": "Airbus A380-800",
             "seat": "86F",
             "nodes": [
-              { "airport": "DXB", "etd": "2014-08-05T15:45+04" },
-              { "airport": "LHR", "eta": "2014-08-05T20:15+01" }
+              { "airport": "DXB", "etd": "2014-08-05T15:45+04", "terminal": "Terminal 3" },
+              { "airport": "LHR", "eta": "2014-08-05T20:15+01", "terminal": "Terminal 3" }
             ]
           }
         ],
@@ -357,8 +357,8 @@
             "airline": "Emirates",
             "aircraft": "Airbus A380-800",
             "nodes": [
-              { "airport": "LHR", "etd": "2014-08-14T20:40+01" },
-              { "airport": "DXB", "eta": "2014-08-15T06:30+04" }
+              { "airport": "LHR", "etd": "2014-08-14T20:40+01", "terminal": "Terminal 3" },
+              { "airport": "DXB", "eta": "2014-08-15T06:30+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -366,8 +366,8 @@
             "airline": "Emirates",
             "aircraft": "Boeing 777-300",
             "nodes": [
-              { "airport": "DXB", "etd": "2014-08-15T09:20+04" },
-              { "airport": "MNL", "eta": "2014-08-15T22:10+08" }
+              { "airport": "DXB", "etd": "2014-08-15T09:20+04", "terminal": "Terminal 3" },
+              { "airport": "MNL", "eta": "2014-08-15T22:10+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -382,7 +382,7 @@
             "airline": "Philippine Airlines",
             "aircraft": "Airbus A320-200",
             "nodes": [
-              { "airport": "MNL", "etd": "2015-01-24T11:00+08" },
+              { "airport": "MNL", "etd": "2015-01-24T11:00+08", "terminal": "Terminal 2" },
               { "airport": "CEB", "eta": "2015-01-24T12:15+08" }
             ]
           }
@@ -394,7 +394,7 @@
             "aircraft": "Airbus A320-200",
             "nodes": [
               { "airport": "CEB", "etd": "2015-01-26T22:00+08" },
-              { "airport": "MNL", "eta": "2015-01-26T23:15+08" }
+              { "airport": "MNL", "eta": "2015-01-26T23:15+08", "terminal": "Terminal 2" }
             ]
           }
         ]
@@ -410,8 +410,8 @@
             "aircraft": "Airbus A321",
             "seat": "46C",
             "nodes": [
-              { "airport": "MNL", "etd": "2015-02-22T08:50+08" },
-              { "airport": "HND", "eta": "2015-02-22T14:00+09" }
+              { "airport": "MNL", "etd": "2015-02-22T08:50+08", "terminal": "Terminal 2" },
+              { "airport": "HND", "eta": "2015-02-22T14:00+09", "terminal": "International Terminal" }
             ]
           }
         ],
@@ -421,8 +421,8 @@
             "airline": "Philippine Airlines",
             "aircraft": "Airbus A321",
             "nodes": [
-              { "airport": "NRT", "etd": "2015-02-28T13:10+09" },
-              { "airport": "MNL", "eta": "2015-02-28T17:10+08" }
+              { "airport": "NRT", "etd": "2015-02-28T13:10+09", "terminal": "Terminal 2" },
+              { "airport": "MNL", "eta": "2015-02-28T17:10+08", "terminal": "Terminal 2" }
             ]
           }
         ]
@@ -438,8 +438,8 @@
             "aircraft": "Airbus A340",
             "seat": "34A",
             "nodes": [
-              { "airport": "MNL", "etd": "2015-05-13T20:50+08" },
-              { "airport": "IST", "eta": "2015-05-14T05:05+03" }
+              { "airport": "MNL", "etd": "2015-05-13T20:50+08", "terminal": "Terminal 1" },
+              { "airport": "IST", "eta": "2015-05-14T05:05+03", "terminal": "International Terminal" }
             ]
           },
           {
@@ -448,7 +448,7 @@
             "aircraft": "Airbus A321-200",
             "seat": "12A",
             "nodes": [
-              { "airport": "IST", "etd": "2015-05-14T08:25+03" },
+              { "airport": "IST", "etd": "2015-05-14T08:25+03", "terminal": "International Terminal" },
               { "airport": "TXL", "eta": "2015-05-14T10:20+02" }
             ]
           }
@@ -460,7 +460,7 @@
             "aircraft": "Airbus A321-200",
             "nodes": [
               { "airport": "TXL", "etd": "2015-05-18T19:00+02" },
-              { "airport": "IST", "eta": "2015-05-18T22:50+03" }
+              { "airport": "IST", "eta": "2015-05-18T22:50+03", "terminal": "International Terminal" }
             ]
           },
           {
@@ -469,8 +469,8 @@
             "aircraft": "Boeing 777-300",
             "seat": "12J",
             "nodes": [
-              { "airport": "IST", "etd": "2015-05-19T01:15+03" },
-              { "airport": "HKG", "eta": "2015-05-19T16:40+08" }
+              { "airport": "IST", "etd": "2015-05-19T01:15+03", "terminal": "International Terminal" },
+              { "airport": "HKG", "eta": "2015-05-19T16:40+08", "terminal": "Terminal 1" }
             ]
           },
           {
@@ -479,8 +479,8 @@
             "aircraft": "Boeing 777-300",
             "seat": "41K",
             "nodes": [
-              { "airport": "HKG", "etd": "2015-05-19T20:25+08" },
-              { "airport": "MNL", "eta": "2015-05-19T22:35+08" }
+              { "airport": "HKG", "etd": "2015-05-19T20:25+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "2015-05-19T22:35+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -496,7 +496,7 @@
             "aircraft": "Airbus A330",
             "seat": "28F",
             "nodes": [
-              { "airport": "MNL", "etd": "2016-08-14T08:05+08" },
+              { "airport": "MNL", "etd": "2016-08-14T08:05+08", "terminal": "Terminal 1" },
               { "airport": "MCT", "eta": "2016-08-14T12:20+04" }
             ]
           },
@@ -507,7 +507,7 @@
             "seat": "28J",
             "nodes": [
               { "airport": "MCT", "etd": "2016-08-14T13:35+04" },
-              { "airport": "FRA", "eta": "2016-08-14T18:45+02" }
+              { "airport": "FRA", "eta": "2016-08-14T18:45+02", "terminal": "Terminal 2" }
             ]
           }
         ],
@@ -518,7 +518,7 @@
             "aircraft": "Airbus A330-200",
             "seat": "25B",
             "nodes": [
-              { "airport": "FRA", "etd": "2016-08-20T20:20+02" },
+              { "airport": "FRA", "etd": "2016-08-20T20:20+02", "terminal": "Terminal 2" },
               { "airport": "MCT", "eta": "2016-08-21T04:55+04" }
             ]
           },
@@ -529,7 +529,7 @@
             "seat": "40A",
             "nodes": [
               { "airport": "MCT", "etd": "2016-08-21T08:30+04" },
-              { "airport": "MNL", "eta": "2016-08-21T21:15+08" }
+              { "airport": "MNL", "eta": "2016-08-21T21:15+08", "terminal": "Terminal 1" }
             ]
           }
         ]
@@ -545,8 +545,8 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "48K",
             "nodes": [
-              { "airport": "MNL", "etd": "2017-06-18T06:40+08" },
-              { "airport": "DXB", "eta": "2017-06-18T11:05+04" }
+              { "airport": "MNL", "etd": "2017-06-18T06:40+08", "terminal": "Terminal 3" },
+              { "airport": "DXB", "eta": "2017-06-18T11:05+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -555,8 +555,8 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "48A",
             "nodes": [
-              { "airport": "DXB", "etd": "2017-06-18T14:30+04" },
-              { "airport": "MAD", "eta": "2017-06-18T20:20+02" }
+              { "airport": "DXB", "etd": "2017-06-18T14:30+04", "terminal": "Terminal 3" },
+              { "airport": "MAD", "eta": "2017-06-18T20:20+02", "terminal": "Terminal 4S" }
             ]
           }
         ],
@@ -567,8 +567,8 @@
             "aircraft": "Airbus A380-800",
             "seat": "77G",
             "nodes": [
-              { "airport": "BCN", "etd": "2017-06-27T22:40+02" },
-              { "airport": "DXB", "eta": "2017-06-27T07:35+04" }
+              { "airport": "BCN", "etd": "2017-06-27T22:40+02", "terminal": "Terminal 1" },
+              { "airport": "DXB", "eta": "2017-06-27T07:35+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -577,8 +577,8 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "48K",
             "nodes": [
-              { "airport": "DXB", "etd": "2017-06-28T09:20+04" },
-              { "airport": "MNL", "eta": "2017-06-28T22:10+08" }
+              { "airport": "DXB", "etd": "2017-06-28T09:20+04", "terminal": "Terminal 3" },
+              { "airport": "MNL", "eta": "2017-06-28T22:10+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -638,7 +638,7 @@
             "seat": "29J",
             "notes": "Actually seated at 29K.",
             "nodes": [
-              { "airport": "MNL", "etd": "2017-11-21T14:50+08" },
+              { "airport": "MNL", "etd": "2017-11-21T14:50+08", "terminal": "Terminal 3" },
               { "airport": "HND", "eta": "2017-11-21T20:00+09" }
             ]
           }
@@ -652,7 +652,7 @@
             "notes": "Actually seated at 23F.",
             "nodes": [
               { "airport": "HND", "etd": "2017-11-28T09:35+09" },
-              { "airport": "MNL", "eta": "2017-11-28T13:35+08" }
+              { "airport": "MNL", "eta": "2017-11-28T13:35+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -669,8 +669,8 @@
             "class": "Business",
             "seat": "5A",
             "nodes": [
-              { "airport": "MNL", "etd": "2018-07-26T18:15+08" },
-              { "airport": "DXB", "eta": "2018-07-26T23:00+04" }
+              { "airport": "MNL", "etd": "2018-07-26T18:15+08", "terminal": "Terminal 3" },
+              { "airport": "DXB", "eta": "2018-07-26T23:00+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -679,8 +679,8 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "48K",
             "nodes": [
-              { "airport": "DXB", "etd": "2018-07-27T03:35+04" },
-              { "airport": "MXP", "eta": "2018-07-27T08:15+02" }
+              { "airport": "DXB", "etd": "2018-07-27T03:35+04", "terminal": "Terminal 3" },
+              { "airport": "MXP", "eta": "2018-07-27T08:15+02", "terminal": "Terminal 1" }
             ]
           }
         ],
@@ -691,8 +691,8 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "46A",
             "nodes": [
-              { "airport": "FCO", "etd": "2018-08-06T22:05+02" },
-              { "airport": "DXB", "eta": "2018-08-07T05:55+04" }
+              { "airport": "FCO", "etd": "2018-08-06T22:05+02", "terminal": "Terminal 3" },
+              { "airport": "DXB", "eta": "2018-08-07T05:55+04", "terminal": "Terminal 3" }
             ]
           },
           {
@@ -703,8 +703,8 @@
             "seat": "6A",
             "notes": "Was automatically upgraded from economy class at seat 46K.",
             "nodes": [
-              { "airport": "DXB", "etd": "2018-08-07T07:35+04" },
-              { "airport": "MNL", "eta": "2018-08-07T20:25+08" }
+              { "airport": "DXB", "etd": "2018-08-07T07:35+04", "terminal": "Terminal 3" },
+              { "airport": "MNL", "eta": "2018-08-07T20:25+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -721,7 +721,7 @@
             "seat": "27E",
             "notes": "Flight was delayed by 5.5 hours mostly due to inclement weather.",
             "nodes": [
-              { "airport": "MNL", "etd": "2019-05-26T16:45+08" },
+              { "airport": "MNL", "etd": "2019-05-26T16:45+08", "terminal": "Terminal 3" },
               { "airport": "DVO", "eta": "2019-05-26T18:55+08" }
             ]
           }
@@ -734,7 +734,7 @@
             "seat": "14F",
             "nodes": [
               { "airport": "DVO", "etd": "2019-05-28T21:20+08" },
-              { "airport": "MNL", "eta": "2019-05-28T23:25+08" }
+              { "airport": "MNL", "eta": "2019-05-28T23:25+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -750,7 +750,7 @@
             "aircraft": "Airbus A320",
             "seat": "3D",
             "nodes": [
-              { "airport": "MNL", "etd": "2019-07-31T14:50+08" },
+              { "airport": "MNL", "etd": "2019-07-31T14:50+08", "terminal": "Terminal 3" },
               { "airport": "DGT", "eta": "2019-07-31T16:25+08" }
             ]
           }
@@ -763,7 +763,7 @@
             "seat": "15F",
             "nodes": [
               { "airport": "DGT", "etd": "2019-08-06T17:30+08" },
-              { "airport": "MNL", "eta": "2019-08-06T19:00+08" }
+              { "airport": "MNL", "eta": "2019-08-06T19:00+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -779,7 +779,7 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "44K",
             "nodes": [
-              { "airport": "MNL", "etd": "2019-09-19T23:40+08" },
+              { "airport": "MNL", "etd": "2019-09-19T23:40+08", "terminal": "Terminal 3" },
               { "airport": "DOH", "eta": "2019-09-20T03:55+03" }
             ]
           },
@@ -790,7 +790,7 @@
             "seat": "77K",
             "nodes": [
               { "airport": "DOH", "etd": "2019-09-20T08:05+03" },
-              { "airport": "FRA", "eta": "2019-09-20T13:40+02" }
+              { "airport": "FRA", "eta": "2019-09-20T13:40+02", "terminal": "Terminal 1" }
             ]
           }
         ],
@@ -801,7 +801,7 @@
             "aircraft": "Airbus A380-800",
             "seat": "77K",
             "nodes": [
-              { "airport": "FRA", "etd": "2019-09-25T17:35+02" },
+              { "airport": "FRA", "etd": "2019-09-25T17:35+02", "terminal": "Terminal 1" },
               { "airport": "DOH", "eta": "2019-09-26T00:35+03" }
             ]
           },
@@ -812,7 +812,7 @@
             "seat": "44A",
             "nodes": [
               { "airport": "DOH", "etd": "2019-09-26T07:25+03" },
-              { "airport": "MNL", "eta": "2019-09-26T22:00+08" }
+              { "airport": "MNL", "eta": "2019-09-26T22:00+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -828,7 +828,7 @@
             "aircraft": "Boeing 777-300ER",
             "seat": "14A",
             "nodes": [
-              { "airport": "MNL", "etd": "2019-10-23T23:40+08" },
+              { "airport": "MNL", "etd": "2019-10-23T23:40+08", "terminal": "Terminal 3" },
               { "airport": "DOH", "eta": "2019-10-24T04:20+03" }
             ]
           },
@@ -861,7 +861,7 @@
             "seat": "39K",
             "nodes": [
               { "airport": "DOH", "etd": "2019-10-29T08:05+03" },
-              { "airport": "MNL", "eta": "2019-10-29T21:40+08" }
+              { "airport": "MNL", "eta": "2019-10-29T21:40+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -877,7 +877,7 @@
             "aircraft": "Airbus A320",
             "seat": "24F",
             "nodes": [
-              { "airport": "MNL", "etd": "2022-04-04T11:20+08" },
+              { "airport": "MNL", "etd": "2022-04-04T11:20+08", "terminal": "Terminal 3" },
               { "airport": "MPH", "eta": "2022-04-04T12:20+08" }
             ]
           }
@@ -889,7 +889,7 @@
             "aircraft": "Airbus A320",
             "nodes": [
               { "airport": "MPH", "etd": "2022-04-11T14:55+08" },
-              { "airport": "MNL", "eta": "2022-04-11T16:05+08" }
+              { "airport": "MNL", "eta": "2022-04-11T16:05+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -906,8 +906,8 @@
             "seat": "4C",
             "notes": "Was originally assigned a seat at Row 2 but had to move because Row 1 was under maintenance.",
             "nodes": [
-              { "airport": "MNL", "etd": "2022-09-16T09:05+08" },
-              { "airport": "SIN", "eta": "2022-09-16T12:30+08" }
+              { "airport": "MNL", "etd": "2022-09-16T09:05+08", "terminal": "Terminal 3" },
+              { "airport": "SIN", "eta": "2022-09-16T12:30+08", "terminal": "Terminal 4" }
             ]
           }
         ],
@@ -919,8 +919,8 @@
             "seat": "2D",
             "notes": "Was originally assigned seat 1C but had to move because Row 1 was under maintenance.",
             "nodes": [
-              { "airport": "SIN", "etd": "2022-09-19T13:15+08" },
-              { "airport": "MNL", "eta": "2022-09-19T17:05+08" }
+              { "airport": "SIN", "etd": "2022-09-19T13:15+08", "terminal": "Terminal 4" },
+              { "airport": "MNL", "eta": "2022-09-19T17:05+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -935,7 +935,7 @@
             "airline": "Cebu Pacific",
             "seat": "11F",
             "nodes": [
-              { "airport": "MNL", "etd": "2022-11-23T05:50+08" },
+              { "airport": "MNL", "etd": "2022-11-23T05:50+08", "terminal": "Terminal 3" },
               { "airport": "LGP", "eta": "2022-11-23T07:05+08" }
             ]
           }
@@ -947,7 +947,7 @@
             "seat": "30A",
             "nodes": [
               { "airport": "LGP", "etd": "2022-11-27T14:20+08" },
-              { "airport": "MNL", "eta": "2022-11-27T15:30+08" }
+              { "airport": "MNL", "eta": "2022-11-27T15:30+08", "terminal": "Terminal 3" }
             ]
           }
         ]
@@ -962,8 +962,8 @@
             "airline": "Scoot",
             "seat": "27A",
             "nodes": [
-              { "airport": "MNL", "etd": "2023-08-14T06:30+08" },
-              { "airport": "SIN", "eta": "2023-08-14T10:30+08" }
+              { "airport": "MNL", "etd": "2023-08-14T06:30+08", "terminal": "Terminal 3" },
+              { "airport": "SIN", "eta": "2023-08-14T10:30+08", "terminal": "Terminal 1" }
             ]
           }
         ],
@@ -973,8 +973,8 @@
             "airline": "Scoot",
             "seat": "27F",
             "nodes": [
-              { "airport": "SIN", "etd": "2023-08-22T01:50+08" },
-              { "airport": "MNL", "eta": "2023-08-22T05:50+08" }
+              { "airport": "SIN", "etd": "2023-08-22T01:50+08", "terminal": "Terminal 1" },
+              { "airport": "MNL", "eta": "2023-08-22T05:50+08", "terminal": "Terminal 3" }
             ]
           }
         ]
